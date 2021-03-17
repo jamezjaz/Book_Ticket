@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import registration from '../apiRequests/regRequest';
 
 const Register = () => {
   const user = useSelector(state => state.user);
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
@@ -21,6 +23,11 @@ const Register = () => {
   const handleSubmit = event => {
     event.preventDefault();
     console.log('Initial User', user);
+    dispatch(registration({
+      email,
+      password,
+      passwordConfirmation,
+    }));
   };
 
   return (
