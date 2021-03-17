@@ -1,0 +1,35 @@
+import { USER_API_FAILURE, USER_API_REQUEST, USER_API_SUCCESS } from '../actions/actionTypes';
+
+const initialState = {
+  loading: false,
+  loginStatus: false,
+  user: {},
+  error: '',
+};
+const userReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case USER_API_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case USER_API_SUCCESS:
+      return {
+        loading: false,
+        user: Object.keys(action.payload),
+        error: '',
+        loginStatus: true,
+      };
+    case USER_API_FAILURE:
+      return {
+        loading: false,
+        loginStatus: false,
+        user: {},
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export default userReducer;
