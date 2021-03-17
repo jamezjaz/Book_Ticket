@@ -1,0 +1,15 @@
+import { USER_API_FAILURE, USER_API_REQUEST, USER_API_SUCCESS } from './actionTypes';
+
+export const userApiRequest = () => ({
+  type: USER_API_REQUEST,
+});
+
+export const userApiSuccess = user => ({
+  type: USER_API_SUCCESS,
+  payload: user,
+});
+
+export const userApiFailure = error => ({
+  type: USER_API_FAILURE,
+  payload: error,
+});
