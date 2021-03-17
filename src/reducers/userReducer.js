@@ -1,4 +1,9 @@
-import { USER_API_FAILURE, USER_API_REQUEST, USER_API_SUCCESS } from '../actions/actionTypes';
+import {
+  LOGOUT_USER,
+  USER_API_FAILURE,
+  USER_API_REQUEST,
+  USER_API_SUCCESS,
+} from '../actions/actionTypes';
 
 const initialState = {
   loading: false,
@@ -26,6 +31,12 @@ const userReducer = (state = initialState, action) => {
         loginStatus: false,
         user: {},
         error: action.payload,
+      };
+    case LOGOUT_USER:
+      return {
+        loading: false,
+        loginStatus: false,
+        user: {},
       };
     default:
       return state;
