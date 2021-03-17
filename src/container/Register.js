@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 const Register = () => {
+  const user = useSelector(state => state.user);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
@@ -13,7 +15,12 @@ const Register = () => {
     } else {
       setPasswordConfirmation(event.target.value);
     }
-    console.log(event.target);
+    // console.log(event.target);
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log('Initial User', user);
   };
 
   return (
@@ -34,7 +41,7 @@ const Register = () => {
           <input type="password" name="password_confirmation" placeholder="Enter your password confirm" onChange={handleChange} value={passwordConfirmation.password_confirmation} />
         </label>
         <br />
-        <button type="submit">Register</button>
+        <button type="submit" onClick={handleSubmit}>Register</button>
       </form>
     </div>
   );
