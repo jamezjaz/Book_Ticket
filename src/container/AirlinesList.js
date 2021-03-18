@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import fetchAirlines from '../apiRequests/getRequest';
+import Airline from '../components/Airline';
 
-const Airlines = props => {
+const AirlinesList = props => {
   const { airlines } = props;
   useEffect(() => {
     const { fetchedAirlines } = props;
@@ -13,11 +14,16 @@ const Airlines = props => {
   return (
     <>
       <h1>List Of Trending Airlines</h1>
+      <div>
+        {airlines.map(airline => (
+          <Airline key={airline.id} airline={airline} />
+        ))}
+      </div>
     </>
   );
 };
 
-Airlines.propTypes = {
+AirlinesList.propTypes = {
   airlines: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   fetchedAirlines: PropTypes.func.isRequired,
 };
@@ -30,4 +36,4 @@ const mapDispatchToprops = dispatch => ({
   fetchedAirlines: airlines => dispatch(fetchAirlines(airlines)),
 });
 
-export default connect(mapStateToProps, mapDispatchToprops)(Airlines);
+export default connect(mapStateToProps, mapDispatchToprops)(AirlinesList);

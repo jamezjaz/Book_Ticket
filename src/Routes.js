@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Airlines from './container/Airlines';
+import Airlines from './container/AirlinesList';
 import Home from './container/Home';
 import Login from './container/Login';
 import Register from './container/Register';
