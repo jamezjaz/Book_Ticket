@@ -6,9 +6,9 @@ import thunk from 'redux-thunk';
 import './styles/index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
-import userReducer from './reducers/userReducer';
+import rootReducer from './reducers';
 
-const store = createStore(userReducer, applyMiddleware(thunk));
+const store = createStore(rootReducer, applyMiddleware(thunk));
 ReactDOM.render(
   <Provider store={store}>
     <App />

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import login from '../apiRequests/loginRequest';
+import logout from '../apiRequests/logoutRequest';
 
 const SideNav = props => {
   const handleLogout = () => {
@@ -21,7 +21,11 @@ const SideNav = props => {
 SideNav.propTypes = {
   signOut: PropTypes.func.isRequired,
   user: PropTypes.instanceOf(Object).isRequired,
-  loginStatus: PropTypes.bool.isRequired,
+  loginStatus: PropTypes.bool,
+};
+
+SideNav.defaultProps = {
+  loginStatus: null,
 };
 
 const mapStateToProps = state => ({
@@ -30,7 +34,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToprops = dispatch => ({
-  signOut: () => dispatch(login()),
+  signOut: user => dispatch(logout(user)),
 });
 
 export default connect(mapStateToProps, mapDispatchToprops)(SideNav);
