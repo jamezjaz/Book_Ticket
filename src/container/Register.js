@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import registration from '../apiRequests/regRequest';
 
-const Register = () => {
+const Register = props => {
   const user = useSelector(state => state.user);
   const dispatch = useDispatch();
   const [name, setName] = useState('');
@@ -23,6 +24,11 @@ const Register = () => {
     // console.log(event.target);
   };
 
+  const handleRegister = () => {
+    const { history } = props;
+    history.push('/airlinesList');
+  };
+
   const handleSubmit = event => {
     event.preventDefault();
     console.log('Initial User', user);
@@ -32,6 +38,7 @@ const Register = () => {
       password,
       passwordConfirmation,
     }));
+    handleRegister();
   };
 
   return (
@@ -61,6 +68,10 @@ const Register = () => {
       </form>
     </div>
   );
+};
+
+Register.propTypes = {
+  history: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default Register;
