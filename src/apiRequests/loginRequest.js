@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { userApiFailure, userApiRequest, userApiSuccess } from '../actions';
+import { userApiFailure, userApiRequest, userApiSuccess } from '../actions/users/actionCreators';
 
 const login = user => dispatch => {
   console.log(user);

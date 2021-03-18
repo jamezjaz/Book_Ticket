@@ -3,7 +3,7 @@ import {
   USER_API_FAILURE,
   USER_API_REQUEST,
   USER_API_SUCCESS,
-} from '../actions/actionTypes';
+} from '../actions/users/actionTypes';
 
 const initialState = {
   loading: false,
