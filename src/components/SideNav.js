@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import logout from '../apiRequests/logoutRequest';
+import logo from '../assets/paper-airplane.png';
 
 const SideNav = props => {
   const handleHome = () => {
@@ -19,7 +20,14 @@ const SideNav = props => {
   };
 
   return (
-    <div>
+    <div className="container-fluid">
+      <button type="button" className="rounded border-0">
+        <img src={logo} alt="logo" />
+      </button>
+      <div className="d-flex flex-column">
+        <NavLink to="/airlinesList">AIRLINES</NavLink>
+        <NavLink to="/tickets">TICKETS</NavLink>
+      </div>
       <button type="submit" onClick={handleLogout}>Logout</button>
     </div>
   );

@@ -1,6 +1,5 @@
 .alice-carousel__prev-btn,
 .alice-carousel__next-btn {
-  color: white;
   font-size: 1.5rem;
 }
 
@@ -14,6 +13,7 @@
 
 .alice-carousel__prev-btn-item,
 .alice-carousel__next-btn-item {
+  color: white;
   background-color: rgb(151,191,15);
 }
 
