@@ -5,9 +5,10 @@ const Airline = props => {
   const { airline } = props;
   return (
     <>
-      <h3>
-        {airline.name}
-      </h3>
+      <div>{airline.image}</div>
+      <h4>{airline.name}</h4>
+      <h5>{airline.price}</h5>
+      <p>{airline.location}</p>
     </>
   );
 };
@@ -15,6 +16,9 @@ const Airline = props => {
 Airline.propTypes = {
   airline: PropTypes.shape({
     name: PropTypes.string,
+    price: PropTypes.string,
+    location: PropTypes.string,
+    image: PropTypes.string,
   }).isRequired,
 };
 

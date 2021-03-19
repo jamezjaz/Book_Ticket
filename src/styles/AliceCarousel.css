@@ -1,0 +1,11 @@
+.alice-carousel__prev-btn,
+.alice-carousel__next-btn {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.alice-carousel__prev-btn-item,
+.alice-carousel__next-btn-item {
+  background-color: grey;
+  border-radius: 25%;
+}
