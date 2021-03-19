@@ -7,6 +7,7 @@ import fetchAirlines from '../apiRequests/getRequest';
 import Airline from '../components/Airline';
 import responsive from '../constants/respCarousel';
 import '../styles/AliceCarousel.css';
+import SideNav from '../components/SideNav';
 
 const AirlinesList = props => {
   const { airlines } = props;
@@ -17,8 +18,9 @@ const AirlinesList = props => {
 
   return (
     <>
-      <h1>List Of Trending Airlines</h1>
+      <SideNav />
       <div>
+        <h1>List Of Trending Airlines</h1>
         <AliceCarousel
           responsive={responsive}
           autoPlayInterval={3200}
