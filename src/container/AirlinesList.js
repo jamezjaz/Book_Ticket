@@ -17,9 +17,11 @@ const AirlinesList = props => {
   }, []);
 
   return (
-    <>
-      <SideNav />
-      <div>
+    <div className="d-flex container-fluid">
+      <div className="col-2 d-none d-md-flex border px-0">
+        <SideNav />
+      </div>
+      <div className="col-10 px-0">
         <h1>List Of Trending Airlines</h1>
         <AliceCarousel
           responsive={responsive}
@@ -37,19 +39,14 @@ const AirlinesList = props => {
           ))}
         </AliceCarousel>
       </div>
-    </>
+    </div>
   );
 };
 
 AirlinesList.propTypes = {
   airlines: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   fetchedAirlines: PropTypes.func.isRequired,
-  // deviceType: PropTypes.string,
 };
-
-// AirlinesList.defaultProps = {
-//   deviceType: '',
-// };
 
 const mapStateToProps = state => ({
   airlines: state.airline.airlines,
