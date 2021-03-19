@@ -3,11 +3,13 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
+import { Dropdown } from 'react-bootstrap';
 import fetchAirlines from '../apiRequests/getRequest';
 import Airline from '../components/Airline';
 import responsive from '../constants/respCarousel';
 import '../styles/AliceCarousel.css';
 import SideNav from '../components/SideNav';
+import menu from '../assets/hamburger-menu.png';
 
 const AirlinesList = props => {
   const { airlines } = props;
@@ -22,7 +24,18 @@ const AirlinesList = props => {
         <SideNav />
       </div>
       <div className="col-10 px-0">
-        <h1>List Of Trending Airlines</h1>
+        <Dropdown className="d-flex d-md-none mb-5">
+          <Dropdown.Toggle className="bg-white" id="dropdown-basic">
+            <img src={menu} alt="menu" />
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            <Dropdown.Item href="/airlinesList" active>AIRLINES</Dropdown.Item>
+            <Dropdown.Item href="/tickets">TICKETS</Dropdown.Item>
+            <Dropdown.Item href="/others">OTHERS</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+        <h1>Trending Airlines</h1>
         <AliceCarousel
           responsive={responsive}
           autoPlayInterval={3200}
