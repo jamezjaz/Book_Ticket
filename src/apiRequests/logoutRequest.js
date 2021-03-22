@@ -1,9 +1,12 @@
 import axios from 'axios';
 import { logoutUserAction } from '../actions/users/actionCreators';
+import { url } from './apiLink';
 
 const logout = user => dispatch => {
-  const url = 'http://localhost:3001/logout';
-  axios.delete(url, user, { 'content-type': 'application/json', withCredentials: true })
+  axios.delete(url, user, {
+    'Content-Type': 'application/json',
+    Authorization: `bearer ${localStorage.clear('token')}`,
+  })
     .then(response => {
       const logoutRes = response.data;
       dispatch(logoutUserAction(logoutRes));
