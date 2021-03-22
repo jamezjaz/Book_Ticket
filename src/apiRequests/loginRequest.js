@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { userApiFailure, userApiRequest, userApiSuccess } from '../actions/users/actionCreators';
+import header, { url } from './apiLink';
 
 const login = user => dispatch => {
   console.log(user);
-  const url = 'http://localhost:3001/sessions';
   dispatch(userApiRequest());
-  axios.post(url, user, { 'content-type': 'application/json', withCredentials: true })
+  axios.post(`${url}/auth/login`, user, header)
     .then(response => {
       const userRes = response.data;
       dispatch(userApiSuccess(userRes));

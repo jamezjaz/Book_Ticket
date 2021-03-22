@@ -1,12 +1,11 @@
 import axios from 'axios';
 import { userApiFailure, userApiRequest, userApiSuccess } from '../actions/users/actionCreators';
+import header, { url } from './apiLink';
 
 const registration = userObj => dispatch => {
   console.log(userObj);
-  const url = 'http://localhost:3001/registrations';
-  // const url = 'https://jaz-book-ticket-api.herokuapp.com/registrations';
   dispatch(userApiRequest());
-  axios.post(url, userObj, { 'content-type': 'application/json', withCredentials: true })
+  axios.post(`${url}/auth/register`, userObj, header)
     .then(response => {
       const userRes = response.data;
       dispatch(userApiSuccess(userRes));

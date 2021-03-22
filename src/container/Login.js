@@ -8,11 +8,6 @@ const Login = props => {
   const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
-  const handleLogin = () => {
-    const { history } = props;
-    history.push('/airlinesList');
-  };
-
   const handleChange = event => {
     if (event.target.name === 'email') {
       setEmail(event.target.value);
@@ -32,7 +27,6 @@ const Login = props => {
     if (email || password !== '') {
       setErrorMsg('');
       signIn(user);
-      handleLogin();
     } else {
       setErrorMsg('Please, enter correct credentials');
     }
@@ -61,7 +55,6 @@ const Login = props => {
 
 Login.propTypes = {
   signIn: PropTypes.func.isRequired,
-  history: PropTypes.instanceOf(Object).isRequired,
 };
 
 const mapDispatchToprops = dispatch => ({
