@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import AirlineDetails from './container/AirlineDetails';
 import AirlinesList from './container/AirlinesList';
 import Home from './container/Home';
 import Login from './container/Login';
@@ -12,6 +13,7 @@ const Routes = () => (
       <Route path="/register" component={Register} />
       <Route path="/login" component={Login} />
       <Route path="/airlinesList" component={AirlinesList} />
+      <Route path="/airlineDetails/:id" component={AirlineDetails} />
     </Switch>
   </Router>
 );
