@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import AirlineDetailsStyles from '../styles/AirlineDetailsStyles.module.css';
 import SideNav from '../components/SideNav';
 
 const AirlineDetails = ({ airlines, match }) => {
   const airlineId = parseInt(match.params.id, 10);
+  const [date, setDate] = useState(new Date());
+
+  const handleDate = date => {
+    setDate(date);
+    console.log(date);
+  };
 
   return (
     <div className="d-flex container-fluid">
@@ -21,6 +29,39 @@ const AirlineDetails = ({ airlines, match }) => {
               <p>{`$ ${airline.price}`}</p>
               <span>{airline.description}</span>
               <p>{airline.location}</p>
+              <form>
+                <label htmlFor="name">
+                  Name Of Airline:
+                  <br />
+                  <input type="text" name="name" id="name" value={airline.name} readOnly />
+                </label>
+                <br />
+                <label htmlFor="price">
+                  Price:
+                  <br />
+                  <input type="text" name="price" id="price" value={airline.price} readOnly />
+                </label>
+                <br />
+                <label htmlFor="location">
+                  Location:
+                  <br />
+                  <input type="text" name="location" id="location" value={airline.location} readOnly />
+                </label>
+                <br />
+                <div htmlFor="date">
+                  Date:
+                  <br />
+                  <DatePicker
+                    name="date"
+                    type="date"
+                    id="date"
+                    selected={date}
+                    onChange={handleDate}
+                  />
+                </div>
+                <br />
+                <button type="submit">Book Ticket</button>
+              </form>
             </div>
           </div>
         ))}
