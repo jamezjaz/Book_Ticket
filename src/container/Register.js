@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import registration from '../apiRequests/regRequest';
 
 const Register = props => {
@@ -38,7 +39,10 @@ const Register = props => {
   };
 
   return (
-    <div>
+    <div className="container-fluid">
+      <Link className="d-flex justify-content-end" to="/">
+        <button type="button">Home</button>
+      </Link>
       <form>
         <label htmlFor="name">
           Name:

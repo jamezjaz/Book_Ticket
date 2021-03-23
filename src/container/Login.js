@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import login from '../apiRequests/loginRequest';
 
 const Login = props => {
@@ -40,7 +41,10 @@ const Login = props => {
   };
 
   return (
-    <div>
+    <div className="container-fluid">
+      <Link className="d-flex justify-content-end" to="/">
+        <button type="button">Home</button>
+      </Link>
       <form>
         <label htmlFor="email">
           Email:
