@@ -11,7 +11,7 @@ const Airline = props => {
         <div>
           <img src={airline.image.url} className="w-50 rounded-circle" alt={airline.name} />
           <h4>{airline.name}</h4>
-          <h5>{airline.price}</h5>
+          <h5>{`$ ${airline.price}`}</h5>
           <p>{airline.location}</p>
         </div>
       </Link>

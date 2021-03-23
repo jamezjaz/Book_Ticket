@@ -11,9 +11,9 @@ const AirlineDetails = ({ airlines, match }) => {
       {airlines.filter(airline => airline.id === airlineId).map(airline => (
         <div key={airline.id} className={AirlineDetailsStyles.details}>
           <img src={airline.image.url} className={AirlineDetailsStyles.img} alt={airline.name} />
-          <div>
+          <div className={AirlineDetailsStyles.data}>
             <h4>{airline.name}</h4>
-            <p>{airline.price}</p>
+            <p>{`$ ${airline.price}`}</p>
             <span>{airline.description}</span>
             <p>{airline.location}</p>
           </div>
