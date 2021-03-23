@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { fetchAirlineRequest, fetchAirlineSuccess } from '../actions/airlines/actionCreators';
+import { url } from './apiLink';
 
 const fetchAirlines = () => dispatch => {
-  const url = 'http://localhost:3001/airlines';
   dispatch(fetchAirlineRequest);
   axios.get(url, {
     method: 'GET',

@@ -24,7 +24,8 @@ Airline.propTypes = {
     name: PropTypes.string,
     price: PropTypes.string,
     location: PropTypes.string,
-    image: PropTypes.instanceOf(Object),
+    // image: PropTypes.instanceOf(Object),
+    image: PropTypes.string,
     id: PropTypes.number,
   }).isRequired,
 };
