@@ -9,7 +9,7 @@ const Airline = props => {
     <>
       <Link to={`/airlineDetails/${uniqueKey}`}>
         <div>
-          <img src={airline.image.url} alt={airline.name} />
+          <img src={airline.image.url} className="w-50 rounded-circle" alt={airline.name} />
           <h4>{airline.name}</h4>
           <h5>{airline.price}</h5>
           <p>{airline.location}</p>
@@ -24,8 +24,7 @@ Airline.propTypes = {
     name: PropTypes.string,
     price: PropTypes.string,
     location: PropTypes.string,
-    // image: PropTypes.instanceOf(Object),
-    image: PropTypes.string,
+    image: PropTypes.instanceOf(Object),
     id: PropTypes.number,
   }).isRequired,
 };

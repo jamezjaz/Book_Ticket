@@ -1,13 +1,10 @@
 import axios from 'axios';
 import { fetchAirlineRequest, fetchAirlineSuccess } from '../actions/airlines/actionCreators';
-import { url } from './apiLink';
+import header, { url } from './apiLink';
 
 const fetchAirlines = () => dispatch => {
   dispatch(fetchAirlineRequest);
-  axios.get(url, {
-    method: 'GET',
-    mode: 'cors',
-  })
+  axios.get(`${url}/airlines`, header)
     .then(response => {
       const airRes = response.data;
       dispatch(fetchAirlineSuccess(airRes));
