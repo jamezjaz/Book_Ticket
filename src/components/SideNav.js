@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { NavLink, withRouter } from 'react-router-dom';
 import logout from '../apiRequests/logoutRequest';
 import logo from '../assets/paper-airplane.png';
+import SideNavStyles from '../styles/SideNavStyles.module.css';
 
 const SideNav = props => {
   const handleHome = () => {
@@ -24,11 +25,11 @@ const SideNav = props => {
       <button type="button" className="rounded border-0">
         <img src={logo} alt="logo" />
       </button>
-      <div className="d-flex flex-column">
+      <div className={SideNavStyles.links}>
         <NavLink to="/airlinesList">AIRLINES</NavLink>
         <NavLink to="/tickets">TICKETS</NavLink>
       </div>
-      <button type="submit" onClick={handleLogout}>Logout</button>
+      <button type="submit" className={SideNavStyles.logout} onClick={handleLogout}>Logout</button>
     </div>
   );
 };

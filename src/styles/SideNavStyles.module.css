@@ -1,0 +1,11 @@
+.links {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 3rem;
+}
+
+.logout {
+  position: relative;
+  top: 20rem;
+}

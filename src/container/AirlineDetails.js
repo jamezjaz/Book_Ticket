@@ -25,10 +25,10 @@ const AirlineDetails = ({ airlines, match }) => {
           <div key={airline.id} className={AirlineDetailsStyles.details}>
             <img src={airline.image.url} className={AirlineDetailsStyles.img} alt={airline.name} />
             <div className={AirlineDetailsStyles.data}>
-              <h4>{airline.name}</h4>
-              <p>{`$ ${airline.price}`}</p>
-              <span>{airline.description}</span>
-              <p>{airline.location}</p>
+              <div className="mb-5">
+                <h2>{airline.name}</h2>
+                <span>{airline.description}</span>
+              </div>
               <form>
                 <label htmlFor="name">
                   Name Of Airline:
@@ -39,7 +39,7 @@ const AirlineDetails = ({ airlines, match }) => {
                 <label htmlFor="price">
                   Price:
                   <br />
-                  <input type="text" name="price" id="price" value={airline.price} readOnly />
+                  <input type="text" name="price" id="price" value={`$ ${airline.price}`} readOnly />
                 </label>
                 <br />
                 <label htmlFor="location">
@@ -60,7 +60,9 @@ const AirlineDetails = ({ airlines, match }) => {
                   />
                 </div>
                 <br />
-                <button type="submit">Book Ticket</button>
+                <div className="text-center">
+                  <button type="submit">Book Ticket</button>
+                </div>
               </form>
             </div>
           </div>
