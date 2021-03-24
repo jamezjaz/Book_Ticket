@@ -46,13 +46,15 @@ const Login = props => {
         <button type="button">Home</button>
       </Link>
       <form>
-        <label htmlFor="email">
+        <label htmlFor="email" className="text-left">
           Email:
+          <br />
           <input type="text" name="email" id="email" placeholder="Enter your email" onChange={handleChange} value={email.email} />
         </label>
         <br />
-        <label htmlFor="password">
+        <label htmlFor="password" className="text-left">
           Password:
+          <br />
           <input type="password" name="password" id="password" placeholder="Enter your password" onChange={handleChange} value={password.password} />
         </label>
         <br />
