@@ -7,7 +7,7 @@ const Airline = props => {
   const uniqueKey = airline.id;
   return (
     <>
-      <Link to={`/airlineDetails/${uniqueKey}`}>
+      <Link to={`/airlineDetails/${uniqueKey}`} style={{ textDecoration: 'none' }}>
         <div>
           <img src={airline.image.url} className="w-50 rounded-circle" alt={airline.name} />
           <h4>{airline.name}</h4>
