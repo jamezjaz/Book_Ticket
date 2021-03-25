@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+// import DatePicker from 'react-datepicker';
+// import 'react-datepicker/dist/react-datepicker.css';
 import AirlineDetailsStyles from '../styles/AirlineDetailsStyles.module.css';
 import SideNav from '../components/SideNav';
 
-const AirlineDetails = ({ airlines, match }) => {
+const AirlineDetails = ({ airlines, match, history }) => {
   const airlineId = parseInt(match.params.id, 10);
-  const [date, setDate] = useState(new Date());
+  // const [date, setDate] = useState(new Date());
 
-  const handleDate = date => {
-    setDate(date);
-    console.log(date);
+  // const handleDate = date => {
+  //   setDate(date);
+  //   console.log(date);
+  // };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log('Booking Ticket', event);
+    history.push('/bookTicket');
   };
 
   return (
@@ -47,7 +53,7 @@ const AirlineDetails = ({ airlines, match }) => {
                   <br />
                   <input type="text" name="location" id="location" value={airline.location} readOnly />
                 </label>
-                <br />
+                {/* <br />
                 <div htmlFor="date">
                   Date:
                   <br />
@@ -58,10 +64,10 @@ const AirlineDetails = ({ airlines, match }) => {
                     selected={date}
                     onChange={handleDate}
                   />
-                </div>
+                </div> */}
                 <br />
                 <div className="text-center">
-                  <button type="submit">Book Ticket</button>
+                  <button type="submit" onClick={handleSubmit}>Book Ticket</button>
                 </div>
               </form>
             </div>
@@ -79,6 +85,7 @@ AirlineDetails.propTypes = {
       id: PropTypes.string,
     }),
   }).isRequired,
+  history: PropTypes.instanceOf(Object).isRequired,
 };
 
 const mapStateToProps = state => ({

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import { Dropdown } from 'react-bootstrap';
-import fetchAirlines from '../apiRequests/getRequest';
+import fetchAirlines from '../apiRequests/getAirlineRequest';
 import Airline from '../components/Airline';
 import responsive from '../constants/respCarousel';
 import '../styles/AliceCarousel.css';
