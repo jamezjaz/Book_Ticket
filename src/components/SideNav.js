@@ -1,23 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { NavLink, withRouter } from 'react-router-dom';
-import logout from '../apiRequests/logoutRequest';
+// import logout from '../apiRequests/logoutRequest';
 import logo from '../assets/paper-airplane.png';
 import SideNavStyles from '../styles/SideNavStyles.module.css';
 
 const SideNav = props => {
+  const [loginStatus, setLoginStatus] = useState(true);
+
   const handleHome = () => {
     const { history } = props;
     history.push('/');
   };
 
   const handleLogout = () => {
-    const { signOut, user, loginStatus } = props;
-    signOut();
-    handleHome();
+    const { user } = props;
+    // signOut();
+    if (loginStatus === true) {
+      setLoginStatus({
+        loginStatus: false,
+      });
+      handleHome();
+    }
+    // if (loginStatus === true) {
+    //   loginStatus: false;
+    // }
+
+    // handleHome();
     console.log(user);
-    console.log(loginStatus);
+    // console.log(loginStatus);
   };
 
   return (
@@ -35,14 +47,14 @@ const SideNav = props => {
 };
 
 SideNav.propTypes = {
-  signOut: PropTypes.func.isRequired,
+  // signOut: PropTypes.func.isRequired,
   user: PropTypes.instanceOf(Object).isRequired,
-  loginStatus: PropTypes.bool,
+  // loginStatus: PropTypes.bool,
   history: PropTypes.instanceOf(Object),
 };
 
 SideNav.defaultProps = {
-  loginStatus: null,
+  // loginStatus: null,
   history: {},
 };
 
@@ -51,8 +63,8 @@ const mapStateToProps = state => ({
   loginStatus: state.loginStatus,
 });
 
-const mapDispatchToprops = dispatch => ({
-  signOut: user => dispatch(logout(user)),
-});
+// const mapDispatchToprops = dispatch => ({
+//   signOut: user => dispatch(logout(user)),
+// });
 
-export default connect(mapStateToProps, mapDispatchToprops)(withRouter(SideNav));
+export default connect(mapStateToProps, null)(withRouter(SideNav));
