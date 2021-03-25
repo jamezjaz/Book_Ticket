@@ -11,6 +11,7 @@ const Register = props => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
 
   const handleChange = event => {
     if (event.target.name === 'name') {
@@ -38,7 +39,21 @@ const Register = props => {
       password,
       username,
     }));
-    handleRegister();
+    if (email || password !== '') {
+      setErrorMsg('');
+      handleRegister();
+    } else {
+      setErrorMsg('Please, enter valid credentials!');
+    }
+  };
+
+  const validateForm = () => {
+    const x = document.forms.name.value;
+    if (x === '') {
+      alert('All fields must be filled out');
+      return false;
+    }
+    return true;
   };
 
   return (
@@ -46,7 +61,7 @@ const Register = props => {
       <Link className="d-flex justify-content-end" to="/">
         <button type="button">Home</button>
       </Link>
-      <form>
+      <form onSubmit={validateForm}>
         <label htmlFor="name" className="text-left">
           Name:
           <br />
@@ -72,6 +87,11 @@ const Register = props => {
         </label>
         <br />
         <button type="submit" onClick={handleSubmit}>Register</button>
+        <div>
+          <span>Already have an account? </span>
+          <Link to="/login">Login</Link>
+        </div>
+        {errorMsg === '' ? '' : <h3 className="text-danger">{errorMsg}</h3>}
       </form>
     </div>
   );

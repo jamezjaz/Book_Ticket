@@ -35,9 +35,18 @@ const Login = props => {
       signIn(user);
       handleLogin();
     } else {
-      setErrorMsg('Please, enter correct credentials');
+      setErrorMsg('Please, enter correct credentials!');
     }
     console.log(user);
+  };
+
+  const validateForm = () => {
+    const x = document.forms.myForm.name.value;
+    if (x === '') {
+      alert('All fields must be filled out');
+      return false;
+    }
+    return true;
   };
 
   return (
@@ -45,7 +54,7 @@ const Login = props => {
       <Link className="d-flex justify-content-end" to="/">
         <button type="button">Home</button>
       </Link>
-      <form>
+      <form name="myForm" onSubmit={validateForm}>
         <label htmlFor="email" className="text-left">
           Email:
           <br />
@@ -59,7 +68,11 @@ const Login = props => {
         </label>
         <br />
         <button type="submit" onClick={handleSubmit}>Login</button>
-        {errorMsg === '' ? '' : <h3>{errorMsg}</h3>}
+        <div>
+          <span>Don&apos;t have an account? </span>
+          <Link to="/register">Register</Link>
+        </div>
+        {errorMsg === '' ? '' : <h3 className="text-danger">{errorMsg}</h3>}
       </form>
     </div>
   );
