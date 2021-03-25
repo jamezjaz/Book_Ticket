@@ -40,6 +40,7 @@ const SideNav = props => {
       <div className={SideNavStyles.links}>
         <NavLink to="/airlinesList">AIRLINES</NavLink>
         <NavLink to="/tickets">TICKETS</NavLink>
+        <NavLink to="/others">OTHERS</NavLink>
       </div>
       <button type="submit" className={SideNavStyles.logout} onClick={handleLogout}>Logout</button>
     </div>

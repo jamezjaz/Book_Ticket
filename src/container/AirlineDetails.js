@@ -1,19 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-// import DatePicker from 'react-datepicker';
-// import 'react-datepicker/dist/react-datepicker.css';
+import { Dropdown } from 'react-bootstrap';
 import AirlineDetailsStyles from '../styles/AirlineDetailsStyles.module.css';
 import SideNav from '../components/SideNav';
+import menu from '../assets/hamburger-menu.png';
 
 const AirlineDetails = ({ airlines, match, history }) => {
   const airlineId = parseInt(match.params.id, 10);
-  // const [date, setDate] = useState(new Date());
-
-  // const handleDate = date => {
-  //   setDate(date);
-  //   console.log(date);
-  // };
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -27,6 +21,17 @@ const AirlineDetails = ({ airlines, match, history }) => {
         <SideNav />
       </div>
       <div className="col-10 px-0">
+        <Dropdown className="d-flex d-md-none mb-5">
+          <Dropdown.Toggle className="bg-white" id="dropdown-basic">
+            <img src={menu} alt="menu" />
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            <Dropdown.Item href="/airlinesList" active>AIRLINES</Dropdown.Item>
+            <Dropdown.Item href="/tickets">TICKETS</Dropdown.Item>
+            <Dropdown.Item href="/others">OTHERS</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
         {airlines.filter(airline => airline.id === airlineId).map(airline => (
           <div key={airline.id} className={AirlineDetailsStyles.details}>
             <img src={airline.image.url} className={AirlineDetailsStyles.img} alt={airline.name} />
