@@ -20,7 +20,7 @@ const AirlinesList = props => {
     const { fetchedAirlines } = props;
     setTimeout(() => {
       setLoading(false);
-    }, 6000);
+    }, 4000);
     fetchedAirlines(airlines);
   }, []);
 
