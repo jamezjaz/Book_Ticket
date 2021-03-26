@@ -7,11 +7,6 @@ import Routes from '../../Routes';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('App', () => {
-  test('renders App component', () => {
-    render(<App />);
-
-  });
-
   test('renders Routes correctly', () => {
     const wrapper = shallow(<App />);
     expect(wrapper.find(Routes)).toHaveLength(1);

@@ -52,9 +52,9 @@ const Login = props => {
   return (
     <div className="container-fluid">
       <Link className="d-flex justify-content-end" to="/">
-        <button type="button">Home</button>
+        <button type="button" data-testid="home">Home</button>
       </Link>
-      <form name="myForm" onSubmit={validateForm}>
+      <form name="myForm" data-testid="form" onSubmit={validateForm}>
         <label htmlFor="email" className="text-left">
           Email:
           <br />
