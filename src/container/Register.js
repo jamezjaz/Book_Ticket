@@ -57,11 +57,11 @@ const Register = props => {
   };
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid" data-testId="container">
       <Link className="d-flex justify-content-end" to="/">
         <button type="button">Home</button>
       </Link>
-      <form onSubmit={validateForm}>
+      <form onSubmit={validateForm} data-testId="form">
         <label htmlFor="name" className="text-left">
           Name:
           <br />
