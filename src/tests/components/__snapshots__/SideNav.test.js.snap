@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SideNav /> matches SideNav snapshot 1`] = `
+<div
+  className="container-fluid"
+>
+  <button
+    className="rounded border-0"
+    type="button"
+  >
+    <img
+      alt="logo"
+      src="paper-airplane.png"
+    />
+  </button>
+  <div
+    className="links"
+  >
+    <a
+      aria-current={null}
+      href="/airlinesList"
+      onClick={[Function]}
+    >
+      AIRLINES
+    </a>
+    <a
+      aria-current={null}
+      href="/tickets"
+      onClick={[Function]}
+    >
+      TICKETS
+    </a>
+    <a
+      aria-current={null}
+      href="/others"
+      onClick={[Function]}
+    >
+      OTHERS
+    </a>
+  </div>
+  <button
+    className="logout"
+    onClick={[Function]}
+    type="submit"
+  >
+    Logout
+  </button>
+</div>
+`;
