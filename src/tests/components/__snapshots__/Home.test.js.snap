@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Home /> renders correctly 1`] = `
+<div>
+  <a
+    href="/login"
+    onClick={[Function]}
+  >
+    <button
+      type="button"
+    >
+      Login
+    </button>
+  </a>
+  <a
+    href="/register"
+    onClick={[Function]}
+  >
+    <button
+      type="button"
+    >
+      Register
+    </button>
+  </a>
+</div>
+`;
