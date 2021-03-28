@@ -17,7 +17,7 @@ exports[`Register matches Register snapshot 1`] = `
     </button>
   </a>
   <form
-    data-testId="form"
+    data-testid="form"
     onSubmit={[Function]}
   >
     <label

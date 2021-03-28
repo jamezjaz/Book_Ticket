@@ -1,4 +1,3 @@
-import { object } from 'prop-types';
 import { userApiSuccess } from '../../actions/users/actionCreators';
 import userReducer from '../../reducers/userReducer';
 

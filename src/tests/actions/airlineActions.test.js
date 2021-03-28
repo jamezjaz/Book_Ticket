@@ -1,4 +1,6 @@
-import { addAirlineAction, fetchAirlineFailure, fetchAirlineRequest, fetchAirlineSuccess } from "../../actions/airlines/actionCreators";
+import {
+  addAirlineAction, fetchAirlineFailure, fetchAirlineRequest, fetchAirlineSuccess,
+} from '../../actions/airlines/actionCreators';
 
 const airlineRequest = fetchAirlineRequest();
 const airlineSuccess = fetchAirlineSuccess();
@@ -56,4 +58,4 @@ describe('airline actions', () => {
   test('value of payload on addAirlineAction should be undefined', () => {
     expect(addAirline2.payload).toBe('airline');
   });
-})
+});

@@ -9,7 +9,6 @@ import Home from '../../container/Home';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Home />', () => {
-
   test('renders correctly', () => {
     const tree = renderer
       .create(
@@ -23,7 +22,7 @@ describe('<Home />', () => {
 
   test('it contains a button element', () => {
     const wrapper = shallow(<Home />);
-    const button = <button>Login</button>;
+    const button = <button type="button">Login</button>;
     expect(wrapper.containsMatchingElement(button)).toBe(true);
   });
 

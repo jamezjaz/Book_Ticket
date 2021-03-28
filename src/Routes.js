@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import TicketDetails from './components/TicketDetails';
 import AirlineDetails from './container/AirlineDetails';
 import AirlinesList from './container/AirlinesList';
 import BookTicket from './container/BookTicket';
@@ -16,6 +17,7 @@ const Routes = () => (
       <Route path="/airlinesList" component={AirlinesList} />
       <Route path="/airlineDetails/:id" component={AirlineDetails} />
       <Route path="/bookTicket" component={BookTicket} />
+      <Route path="/ticketDetails" component={TicketDetails} />
     </Switch>
   </Router>
 );

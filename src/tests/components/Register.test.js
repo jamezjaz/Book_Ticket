@@ -13,38 +13,42 @@ describe('Register', () => {
   test('matches Register snapshot', () => {
     const tree = renderer
       .create(
-        (<Provider store={store}>
-          <Router>
-            <Register />
-          </Router>
-        </Provider>),
-        )
+        (
+          <Provider store={store}>
+            <Router>
+              <Register />
+            </Router>
+          </Provider>
+        ),
+      )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   test('renders Register component', () => {
-    const div = document.createElement('div');
     const { queryAllByTestId } = render(
-      (<Provider store={store}>
-        <Router>
-          <Route path="/register" component={Register} />
-        </Router>
-      </Provider>),
-      );
+      (
+        <Provider store={store}>
+          <Router>
+            <Route path="/register" component={Register} />
+          </Router>
+        </Provider>
+      ),
+    );
     const container = queryAllByTestId('container');
     expect(container).toBeTruthy();
   });
 
   test('it should have a Register form', () => {
-    const div = document.createElement('div');
     const { queryAllByTestId } = render(
-      (<Provider store={store}>
-        <Router>
-          <Route path="/register" component={Register} />
-        </Router>
-      </Provider>),
-      );
+      (
+        <Provider store={store}>
+          <Router>
+            <Route path="/register" component={Register} />
+          </Router>
+        </Provider>
+      ),
+    );
     const form = queryAllByTestId('form');
     expect(form).toBeTruthy();
   });

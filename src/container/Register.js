@@ -61,7 +61,7 @@ const Register = props => {
       <Link className="d-flex justify-content-end" to="/">
         <button type="button">Home</button>
       </Link>
-      <form onSubmit={validateForm} data-testId="form">
+      <form onSubmit={validateForm} data-testid="form">
         <label htmlFor="name" className="text-left">
           Name:
           <br />

@@ -3,7 +3,7 @@ import {
   userApiFailure,
   userApiRequest,
   userApiSuccess,
-} from "../../actions/users/actionCreators";
+} from '../../actions/users/actionCreators';
 
 const userRequest = userApiRequest();
 const userSuccess = userApiSuccess();
@@ -47,5 +47,5 @@ describe('user actions', () => {
 
   test('value of type on logoutUserAction should be LOGOUT_USER', () => {
     expect(logOut.type).toBe('LOGOUT_USER');
-  })
+  });
 });
