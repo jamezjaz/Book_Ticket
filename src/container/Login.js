@@ -37,12 +37,12 @@ const Login = props => {
     } else {
       setErrorMsg('Please, enter correct credentials!');
     }
-    console.log(user);
   };
 
   const validateForm = () => {
     const x = document.forms.myForm.name.value;
     if (x === '') {
+      // eslint-disable-next-line
       alert('All fields must be filled out');
       return false;
     }

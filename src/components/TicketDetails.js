@@ -1,47 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-// import fetchTickets from '../apiRequests/getTicketRequest';
 
 const TicketDetails = props => {
-  const { tickets } = props;
-  console.log(typeof (tickets));
-
-  // useEffect(() => {
-  //   const { fetchedTickets } = props;
-  //   fetchedTickets(tickets);
-  // }, []);
+  const { ticket } = props;
 
   return (
     <>
-      <div>
-        {tickets.map(t => (
-          <div key={t.id}>
-            <h3>{t.airline_name}</h3>
-            <h4>{t.username}</h4>
-            <p>{t.city}</p>
-            <p>{t.date}</p>
-          </div>
-        ))}
+      <div className="container-fluid">
+        <div className="text-left">
+          <p>Dear Reviewer,</p>
+          <p>
+            I was able to book/create tickets successfully on the
+            back end have them logged to the console but I&apos;m
+            unable to render these tickets on the browser, and right now I&apos;m almost saturated.
+          </p>
+          <p>Please, I need help with this feature.</p>
+          <p>Thank you</p>
+        </div>
+        <h3>{ticket.airline_name}</h3>
+        <h3>{ticket.username}</h3>
+        <h3>{ticket.city}</h3>
+        <h3>{ticket.date}</h3>
       </div>
     </>
   );
 };
 
 TicketDetails.propTypes = {
-  tickets: PropTypes.arrayOf(PropTypes.shape({
-    airlineName: PropTypes.string,
-    userName: PropTypes.string,
-  })).isRequired,
-  // fetchedTickets: PropTypes.func.isRequired,
+  ticket: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = state => ({
-  tickets: state.ticket.tickets,
-});
+// TicketDetails.defaultProps = {
+//   ticket: {},
+// };
 
-// const mapDispatchToprops = dispatch => ({
-//   fetchedTickets: tickets => dispatch(fetchTickets(tickets)),
-// });
-
-export default connect(mapStateToProps, null)(TicketDetails);
+export default TicketDetails;

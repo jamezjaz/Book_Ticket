@@ -11,7 +11,6 @@ const AirlineDetails = ({ airlines, match, history }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log('Booking Ticket', event);
     history.push('/bookTicket');
   };
 

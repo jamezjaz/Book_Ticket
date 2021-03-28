@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import registration from '../apiRequests/regRequest';
 
 const Register = props => {
-  const user = useSelector(state => state.user);
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -32,7 +31,6 @@ const Register = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log('Initial User', user);
     dispatch(registration({
       name,
       email,
@@ -50,6 +48,7 @@ const Register = props => {
   const validateForm = () => {
     const x = document.forms.name.value;
     if (x === '') {
+      // eslint-disable-next-line
       alert('All fields must be filled out');
       return false;
     }

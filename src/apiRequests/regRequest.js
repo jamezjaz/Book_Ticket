@@ -3,7 +3,6 @@ import { userApiFailure, userApiRequest, userApiSuccess } from '../actions/users
 import header, { url } from './apiLink';
 
 const registration = userObj => dispatch => {
-  console.log(userObj);
   dispatch(userApiRequest());
   axios.post(`${url}/auth/register`, userObj, header)
     .then(response => {

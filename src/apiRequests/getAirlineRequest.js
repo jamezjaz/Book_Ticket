@@ -8,7 +8,6 @@ const fetchAirlines = () => dispatch => {
     .then(response => {
       const airRes = response.data;
       dispatch(fetchAirlineSuccess(airRes));
-      console.log(airRes);
     })
     .catch(error => {
       const errorMsg = error.message;
