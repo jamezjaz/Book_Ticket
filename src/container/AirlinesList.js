@@ -16,6 +16,7 @@ import AirlinesListStyles from '../styles/AirlinesListStyles.module.css';
 const AirlinesList = props => {
   const [loading, setLoading] = useState(true);
   const { airlines } = props;
+
   useEffect(() => {
     const { fetchedAirlines } = props;
     setTimeout(() => {
@@ -50,7 +51,7 @@ const AirlinesList = props => {
               <Dropdown.Menu>
                 <Dropdown.Item href="/airlinesList" active>AIRLINES</Dropdown.Item>
                 <Dropdown.Item href="/tickets">TICKETS</Dropdown.Item>
-                <Dropdown.Item href="/others">OTHERS</Dropdown.Item>
+                <Dropdown.Item href="/">LogOut</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
             <h1 className="mt-5">Trending Airlines</h1>

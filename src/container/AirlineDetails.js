@@ -28,7 +28,7 @@ const AirlineDetails = ({ airlines, match, history }) => {
           <Dropdown.Menu>
             <Dropdown.Item href="/airlinesList" active>AIRLINES</Dropdown.Item>
             <Dropdown.Item href="/tickets">TICKETS</Dropdown.Item>
-            <Dropdown.Item href="/others">OTHERS</Dropdown.Item>
+            <Dropdown.Item href="/tickets">LogOut</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
         {airlines.filter(airline => airline.id === airlineId).map(airline => (

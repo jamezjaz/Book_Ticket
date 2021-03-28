@@ -43,12 +43,15 @@
 <!-- TABLE OF CONTENTS -->
 ## Table Of Contents
 
+* [Features](#features)
 * [About The Project](#about-the-project)
 * [Preview](#preview)
 * [Live Demo](#live-demo)
 * [Built With](#built-with)
 * [Getting Started](#getting-started)
 * [Author](#author)
+* [🤝 Contributing](#🤝-Contributing)
+* [Show Your Support](#show-your-support)
 * [Acknowledgements](#acknowledgements)
 * [License](#license)
 
@@ -71,11 +74,11 @@
 - The user can see the list of booked tickest on the tickets page.
 
 ## Preview
-![Recipes](https://user-images.githubusercontent.com/57812000/109842050-493cb100-7c0f-11eb-9a93-21ee2511e433.png)
+![air-ticket](https://user-images.githubusercontent.com/57812000/112767980-469b6480-8fdf-11eb-8b54-7934502ff93d.png)
 
 ## Live Demo
 ### Front End
-It's deployed [HERE](https://) on Netlify
+It's deployed [HERE](https://jaz-book-air-tickets.netlify.app/) on Netlify
 
 ### Back End
 It's deployed [HERE](https://jaz-air-tickets.herokuapp.com/) on Heroku
@@ -158,7 +161,7 @@ Contributions, issues and feature requests are welcome!
 
 Feel free to check the [issues page](https://github.com/jamezjaz/Book_Ticket/issues).
 
-## Show your support
+## Show Your Support
 
 Give a :star: if you like this project!
 
