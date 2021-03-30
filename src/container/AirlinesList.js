@@ -54,7 +54,11 @@ const AirlinesList = props => {
                 <Dropdown.Item href="/">LogOut</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-            <h1 className="mt-5">Trending Airlines</h1>
+            <div className="m-2">
+              <h3 className={AirlinesListStyles.heading}>TRENDING AIRLINES</h3>
+              <h6 className={AirlinesListStyles.para}>Please, select an airline</h6>
+              <small>...........................</small>
+            </div>
             <AliceCarousel
               responsive={responsive}
               autoPlayInterval={3200}

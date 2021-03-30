@@ -16,7 +16,7 @@ const AirlineDetails = ({ airlines, match, history }) => {
 
   return (
     <div className="d-flex container-fluid">
-      <div className="col-2 d-none d-md-flex border px-0">
+      <div className="col-2 d-none d-md-flex border min-vh-100 px-0">
         <SideNav />
       </div>
       <div className="col-10 px-0">
@@ -36,7 +36,7 @@ const AirlineDetails = ({ airlines, match, history }) => {
             <img src={airline.image.url} className={AirlineDetailsStyles.img} alt={airline.name} />
             <div className={AirlineDetailsStyles.data}>
               <div className="mb-5">
-                <h2>{airline.name}</h2>
+                <h2 className={AirlineDetailsStyles.name}>{airline.name}</h2>
                 <span>{airline.description}</span>
               </div>
               <form>
@@ -71,7 +71,7 @@ const AirlineDetails = ({ airlines, match, history }) => {
                 </div> */}
                 <br />
                 <div className="text-center">
-                  <button type="submit" onClick={handleSubmit}>Book Ticket</button>
+                  <button type="submit" className={`${AirlineDetailsStyles.bookTicket} btn`} onClick={handleSubmit}>Book Ticket</button>
                 </div>
               </form>
             </div>

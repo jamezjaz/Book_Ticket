@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import Card from 'react-bootstrap/Card';
+import AirlineStyles from '../styles/AirlineStyles.module.css';
 
 const Airline = props => {
   const { airline } = props;
@@ -8,12 +10,19 @@ const Airline = props => {
   return (
     <>
       <Link to={`/airlineDetails/${uniqueKey}`} style={{ textDecoration: 'none' }}>
-        <div>
-          <img src={airline.image.url} className="w-50 rounded-circle" alt={airline.name} />
-          <h4>{airline.name}</h4>
-          <h5>{`$ ${airline.price}`}</h5>
-          <p>{airline.location}</p>
-        </div>
+        <Card style={{ width: '18rem' }} className={AirlineStyles.card}>
+          <Card.Img variant="top" src={airline.image.url} className="card-img-top rounded-circle" alt={airline.name} />
+          <Card.Body>
+            <Card.Title className={AirlineStyles.name}>{airline.name}</Card.Title>
+            <Card.Text>{`$ ${airline.price}`}</Card.Text>
+            <Card.Text>{airline.location}</Card.Text>
+          </Card.Body>
+          <p className="d-flex justify-content-center">
+            <img src="https://img.icons8.com/dotty/50/A6A6A6/facebook-circled.png" alt="facebook" />
+            <img src="https://img.icons8.com/dotty/50/A6A6A6/twitter-circled.png" alt="twitter" />
+            <img src="https://img.icons8.com/dotty/50/A6A6A6/google-plus.png" alt="google" />
+          </p>
+        </Card>
       </Link>
     </>
   );

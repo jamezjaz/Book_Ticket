@@ -27,11 +27,20 @@ const SideNav = props => {
       <button type="button" className="rounded border-0">
         <img src={logo} alt="logo" />
       </button>
-      <div className={SideNavStyles.links}>
-        <NavLink to="/airlinesList">AIRLINES</NavLink>
-        <NavLink to="/tickets">TICKETS</NavLink>
+      <div className={`${SideNavStyles.links} links`}>
+        <NavLink to="/airlinesList" className={SideNavStyles.active}>AIRLINES</NavLink>
+        <NavLink to="/tickets" className={SideNavStyles.active}>TICKETS</NavLink>
       </div>
-      <button type="submit" className={SideNavStyles.logout} onClick={handleLogout}>Logout</button>
+      <div>
+        <button type="submit" className={`${SideNavStyles.logout} btn`} onClick={handleLogout}>LogOut</button>
+      </div>
+      <p className={SideNavStyles.icons}>
+        <img src="https://img.icons8.com/android/24/000000/twitter.png" className="px-2" alt="twitter" />
+        <img src="https://img.icons8.com/android/24/000000/facebook-new.png" className="px-2" alt="fb" />
+        <img src="https://img.icons8.com/android/24/000000/google-plus.png" className="px-2" alt="google" />
+        <img src="https://img.icons8.com/material/24/000000/vimeo.png" className="px-2" alt="vimeo" />
+        <img src="https://img.icons8.com/metro/24/000000/pinterest.png" className="px-2" alt="pinterest" />
+      </p>
     </div>
   );
 };
