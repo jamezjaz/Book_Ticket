@@ -8,6 +8,7 @@ const fetchTickets = () => dispatch => {
     .then(response => {
       const ticketsRes = response.data;
       dispatch(fetchTicketSuccessAction(ticketsRes));
+      console.log('Ticket responses', ticketsRes);
     })
     .catch(error => {
       const errorMsg = error.message;

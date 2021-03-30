@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useDispatch, useSelector } from 'react-redux';
 import bookTicket from '../apiRequests/bookTicketRequest';
-import fetchTickets from '../apiRequests/getTicketRequest';
 
 const BookTicket = props => {
   const dispatch = useDispatch();
-  const user = useSelector(state => state.user.users);
+  const user = useSelector(state => state.user.user);
   const [userId, setUserId] = useState('');
   const [airlineName, setAirlineName] = useState('');
   const [userName, setUserName] = useState('');
@@ -48,10 +47,6 @@ const BookTicket = props => {
     dispatch(bookTicket(newTicket));
     handleTicketDetails();
   };
-
-  useEffect(() => {
-    dispatch(fetchTickets());
-  }, []);
 
   return (
     <div>
