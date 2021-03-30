@@ -1,0 +1,41 @@
+.homeLink {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.loginForm {
+  background-color: rgb(255, 180, 0);
+  height: 100vh;
+}
+
+.homeBtn {
+  font-size: 20px;
+  padding: 2rem;
+}
+
+.homeBtn:hover {
+  color: whitesmoke;
+}
+
+.btn {
+  background-color: rgb(151, 191, 15);
+  font-size: 18px;
+  color: whitesmoke;
+  padding: 0.5rem 1.7rem;
+  border-radius: 1.5rem;
+}
+
+.btn:hover {
+  background-color: rgb(54, 70, 3);
+  color: whitesmoke;
+}
+
+input[type=text],
+input[type=password] {
+  width: 100%;
+  padding: 0.625rem 1.25rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+}

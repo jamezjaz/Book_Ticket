@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import login from '../apiRequests/loginRequest';
+import LoginStyles from '../styles/LoginStyles.module.css';
 
 const Login = props => {
   const [email, setEmail] = useState('');
@@ -50,11 +51,12 @@ const Login = props => {
   };
 
   return (
-    <div className="container-fluid">
-      <Link className="d-flex justify-content-end" to="/">
-        <button type="button" data-testid="home">Home</button>
-      </Link>
-      <form name="myForm" data-testid="form" onSubmit={validateForm}>
+    <>
+      <form name="myForm" data-testid="form" className={LoginStyles.loginForm} onSubmit={validateForm}>
+        <Link className={LoginStyles.homeLink} style={{ textDecoration: 'none' }} to="/">
+          <button type="button" data-testid="home" className={`${LoginStyles.homeBtn} btn`}>Home</button>
+        </Link>
+        <h4>Login</h4>
         <label htmlFor="email" className="text-left">
           Email:
           <br />
@@ -67,14 +69,14 @@ const Login = props => {
           <input type="password" name="password" id="password" placeholder="Enter your password" onChange={handleChange} value={password.password} />
         </label>
         <br />
-        <button type="submit" onClick={handleSubmit}>Login</button>
+        <button type="submit" className={`${LoginStyles.btn} btn`} onClick={handleSubmit}>Login</button>
         <div>
           <span>Don&apos;t have an account? </span>
           <Link to="/register">Register</Link>
         </div>
         {errorMsg === '' ? '' : <h3 className="text-danger">{errorMsg}</h3>}
       </form>
-    </div>
+    </>
   );
 };
 
