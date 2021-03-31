@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Dropdown } from 'react-bootstrap';
+import DatePicker from 'react-datepicker';
 import AirlineDetailsStyles from '../styles/AirlineDetailsStyles.module.css';
 import SideNav from '../components/SideNav';
 import menu from '../assets/hamburger-menu.png';
 
 const AirlineDetails = ({ airlines, match, history }) => {
   const airlineId = parseInt(match.params.id, 10);
+  const [date, setDate] = useState(new Date());
+
+  const handleDate = date => {
+    setDate(date);
+  };
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -57,7 +63,7 @@ const AirlineDetails = ({ airlines, match, history }) => {
                   <br />
                   <input type="text" name="location" id="location" value={airline.location} readOnly />
                 </label>
-                {/* <br />
+                <br />
                 <div htmlFor="date">
                   Date:
                   <br />
@@ -68,7 +74,7 @@ const AirlineDetails = ({ airlines, match, history }) => {
                     selected={date}
                     onChange={handleDate}
                   />
-                </div> */}
+                </div>
                 <br />
                 <div className="text-center">
                   <button type="submit" className={`${AirlineDetailsStyles.bookTicket} btn`} onClick={handleSubmit}>Book Ticket</button>

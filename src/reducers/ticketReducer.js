@@ -28,7 +28,7 @@ const ticketReducer = (state = initialTicket, action) => {
     case FETCH_TICKET_SUCCESS:
       return {
         loading: false,
-        tickets: Object.keys(action.payload),
+        tickets: Object.values(action.payload),
         error: '',
       };
     case FETCH_TICKET_FAILURE:

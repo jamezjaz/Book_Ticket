@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useDispatch, useSelector } from 'react-redux';
 import bookTicket from '../apiRequests/bookTicketRequest';
+import fetchTickets from '../apiRequests/getTicketRequest';
+// import fetchTickets from '../apiRequests/getTicketRequest';
 
 const BookTicket = props => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.user.user);
+  const tickets = useSelector(state => state.ticket.tickets);
   const [userId, setUserId] = useState('');
   const [airlineName, setAirlineName] = useState('');
   const [userName, setUserName] = useState('');
@@ -48,25 +51,30 @@ const BookTicket = props => {
     handleTicketDetails();
   };
 
+  useEffect(() => {
+    dispatch(fetchTickets(tickets));
+  }, []);
+
   return (
     <div>
+      <h5>Please, re-confirm these details!</h5>
       <form>
         <label htmlFor="airlineName" className="text-left">
           Name Of Airline:
           <br />
-          <input type="text" name="airlineName" id="airlineName" value={airlineName.airlineName} onChange={event => handleChange(event)} />
+          <input type="text" name="airlineName" id="airlineName" onChange={event => handleChange(event)} />
         </label>
         <br />
         <label htmlFor="username" className="text-left">
           Username:
           <br />
-          <input type="text" name="username" id="username" value={userName.userName} onChange={event => handleChange(event)} />
+          <input type="text" name="username" id="username" onChange={event => handleChange(event)} />
         </label>
         <br />
         <label htmlFor="location" className="text-left">
           Location:
           <br />
-          <input type="text" name="location" id="location" value={location.location} onChange={event => handleChange(event)} />
+          <input type="text" name="location" id="location" onChange={event => handleChange(event)} />
         </label>
         <br />
         <label htmlFor="date" className="text-left">
@@ -79,7 +87,7 @@ const BookTicket = props => {
             selected={date}
             onChange={handleDate}
           />
-          <input id="date" value={userId.userId} hidden />
+          <input id="date" hidden />
         </label>
         <br />
         <div className="text-center">
