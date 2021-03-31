@@ -10,7 +10,7 @@ import Ticket from '../components/Ticket';
 const Tickets = props => {
   // const { tickets } = props;
   const tickets = useSelector(state => state.ticket.tickets);
-  console.log(' All Ticket objectsssssss', tickets);
+  // console.log(' All Ticket objectsssssss', tickets);
 
   // const ticketId = parseInt(match.params.id, 10);
   // const filteredTickets = tickets.filter(ticket => ticket.id === ticketId);
@@ -18,10 +18,8 @@ const Tickets = props => {
   useEffect(() => {
     const { fetchedTickets } = props;
     fetchedTickets(tickets);
-    console.log('Fetched Tickets', tickets);
+    // console.log('Fetched Tickets', tickets);
   }, []);
-
-  tickets.map(t => console.log('WORLD', t.id));
 
   return (
     <div className="d-flex container-fluid">

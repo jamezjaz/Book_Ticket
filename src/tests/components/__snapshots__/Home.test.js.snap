@@ -1,26 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Home /> renders correctly 1`] = `
-<div>
-  <a
-    href="/login"
-    onClick={[Function]}
+<div
+  className="home"
+>
+  <h1
+    className="heading"
   >
-    <button
-      type="button"
+    BOOKING AIR TICKETS MADE EASY
+  </h1>
+  <div>
+    <a
+      className="leftBtn"
+      href="/login"
+      onClick={[Function]}
     >
-      Login
-    </button>
-  </a>
-  <a
-    href="/register"
-    onClick={[Function]}
-  >
-    <button
-      type="button"
+      <button
+        className="btn btn"
+        type="button"
+      >
+        Login
+      </button>
+    </a>
+    <a
+      className="rightBtn"
+      href="/register"
+      onClick={[Function]}
     >
-      Register
-    </button>
-  </a>
+      <button
+        className="btn btn"
+        type="button"
+      >
+        Register
+      </button>
+    </a>
+  </div>
 </div>
 `;

@@ -12,7 +12,7 @@
 }
 
 .links a:hover {
-  background-color: rgb(151,191,15) !important;
+  background-color: rgb(151, 191, 15) !important;
   color: white;
   padding-top: 0.7rem;
 }
@@ -31,9 +31,6 @@
 .logout {
   position: relative;
   top: 20rem;
-}
-
-.logout {
   background-color: rgb(151, 191, 15);
   font-size: 18px;
   color: whitesmoke;

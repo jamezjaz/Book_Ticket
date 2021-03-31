@@ -14,10 +14,11 @@ exports[`<SideNav /> matches SideNav snapshot 1`] = `
     />
   </button>
   <div
-    className="links"
+    className="links links"
   >
     <a
       aria-current={null}
+      className="active"
       href="/airlinesList"
       onClick={[Function]}
     >
@@ -25,25 +26,50 @@ exports[`<SideNav /> matches SideNav snapshot 1`] = `
     </a>
     <a
       aria-current={null}
+      className="active"
       href="/tickets"
       onClick={[Function]}
     >
       TICKETS
     </a>
-    <a
-      aria-current={null}
-      href="/others"
-      onClick={[Function]}
-    >
-      OTHERS
-    </a>
   </div>
-  <button
-    className="logout"
-    onClick={[Function]}
-    type="submit"
+  <div>
+    <button
+      className="logout btn"
+      onClick={[Function]}
+      type="submit"
+    >
+      LogOut
+    </button>
+  </div>
+  <p
+    className="icons"
   >
-    Logout
-  </button>
+    <img
+      alt="twitter"
+      className="px-2"
+      src="https://img.icons8.com/android/24/000000/twitter.png"
+    />
+    <img
+      alt="fb"
+      className="px-2"
+      src="https://img.icons8.com/android/24/000000/facebook-new.png"
+    />
+    <img
+      alt="google"
+      className="px-2"
+      src="https://img.icons8.com/android/24/000000/google-plus.png"
+    />
+    <img
+      alt="vimeo"
+      className="px-2"
+      src="https://img.icons8.com/material/24/000000/vimeo.png"
+    />
+    <img
+      alt="pinterest"
+      className="px-2"
+      src="https://img.icons8.com/metro/24/000000/pinterest.png"
+    />
+  </p>
 </div>
 `;
