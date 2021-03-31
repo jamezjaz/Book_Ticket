@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import registration from '../apiRequests/regRequest';
+import RegisterStyles from '../styles/RegisterStyles.module.css';
 
 const Register = props => {
   const dispatch = useDispatch();
@@ -56,11 +57,11 @@ const Register = props => {
   };
 
   return (
-    <div className="container-fluid" data-testId="container">
-      <Link className="d-flex justify-content-end" to="/">
-        <button type="button">Home</button>
-      </Link>
-      <form onSubmit={validateForm} data-testid="form">
+    <div data-testid="container">
+      <form onSubmit={validateForm} className={RegisterStyles.registerForm} data-testid="form">
+        <Link className={RegisterStyles.homeLink} to="/">
+          <button type="button" className={`${RegisterStyles.homeBtn} btn`}>Home</button>
+        </Link>
         <label htmlFor="name" className="text-left">
           Name:
           <br />
@@ -85,7 +86,7 @@ const Register = props => {
           <input type="password" name="password" id="password" placeholder="Enter your password" onChange={handleChange} value={password.password} />
         </label>
         <br />
-        <button type="submit" onClick={handleSubmit}>Register</button>
+        <button type="submit" className={`${RegisterStyles.btn} btn`} onClick={handleSubmit}>Register</button>
         <div>
           <span>Already have an account? </span>
           <Link to="/login">Login</Link>

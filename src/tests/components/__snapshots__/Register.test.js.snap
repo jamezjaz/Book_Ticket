@@ -2,24 +2,25 @@
 
 exports[`Register matches Register snapshot 1`] = `
 <div
-  className="container-fluid"
-  data-testId="container"
+  data-testid="container"
 >
-  <a
-    className="d-flex justify-content-end"
-    href="/"
-    onClick={[Function]}
-  >
-    <button
-      type="button"
-    >
-      Home
-    </button>
-  </a>
   <form
+    className="registerForm"
     data-testid="form"
     onSubmit={[Function]}
   >
+    <a
+      className="homeLink"
+      href="/"
+      onClick={[Function]}
+    >
+      <button
+        className="homeBtn btn"
+        type="button"
+      >
+        Home
+      </button>
+    </a>
     <label
       className="text-left"
       htmlFor="name"
@@ -81,6 +82,7 @@ exports[`Register matches Register snapshot 1`] = `
     </label>
     <br />
     <button
+      className="btn btn"
       onClick={[Function]}
       type="submit"
     >
