@@ -3,8 +3,12 @@ import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useDispatch, useSelector } from 'react-redux';
+import { Dropdown } from 'react-bootstrap';
 import bookTicket from '../apiRequests/bookTicketRequest';
 import fetchTickets from '../apiRequests/getTicketRequest';
+import SideNav from '../components/SideNav';
+import menu from '../assets/hamburger-menu.png';
+import BookTicketStyles from '../styles/BookTicketStyles.module.css';
 // import fetchTickets from '../apiRequests/getTicketRequest';
 
 const BookTicket = props => {
@@ -56,44 +60,60 @@ const BookTicket = props => {
   }, []);
 
   return (
-    <div>
-      <h5>Please, re-confirm these details!</h5>
-      <form>
-        <label htmlFor="airlineName" className="text-left">
-          Name Of Airline:
+    <div className="d-flex container-fluid">
+      <div className="col-2 d-none d-md-flex border min-vh-100 px-0">
+        <SideNav />
+      </div>
+      <div className="col-10 px-0">
+        <Dropdown className="d-flex d-md-none mb-5">
+          <Dropdown.Toggle className="bg-white" id="dropdown-basic">
+            <img src={menu} alt="menu" />
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            <Dropdown.Item href="/airlinesList" active>AIRLINES</Dropdown.Item>
+            <Dropdown.Item href="/tickets">TICKETS</Dropdown.Item>
+            <Dropdown.Item href="/tickets">LogOut</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+        <h5>Please, re-confirm these details!</h5>
+        <form>
+          <label htmlFor="airlineName" className="text-left">
+            Name Of Airline:
+            <br />
+            <input type="text" name="airlineName" id="airlineName" onChange={event => handleChange(event)} />
+          </label>
           <br />
-          <input type="text" name="airlineName" id="airlineName" onChange={event => handleChange(event)} />
-        </label>
-        <br />
-        <label htmlFor="username" className="text-left">
-          Username:
+          <label htmlFor="username" className="text-left">
+            Username:
+            <br />
+            <input type="text" name="username" id="username" onChange={event => handleChange(event)} />
+          </label>
           <br />
-          <input type="text" name="username" id="username" onChange={event => handleChange(event)} />
-        </label>
-        <br />
-        <label htmlFor="location" className="text-left">
-          Location:
+          <label htmlFor="location" className="text-left">
+            Location:
+            <br />
+            <input type="text" name="location" id="location" onChange={event => handleChange(event)} />
+          </label>
           <br />
-          <input type="text" name="location" id="location" onChange={event => handleChange(event)} />
-        </label>
-        <br />
-        <label htmlFor="date" className="text-left">
-          Date:
+          <label htmlFor="date" className="text-left">
+            Date:
+            <br />
+            <DatePicker
+              name="date"
+              type="date"
+              id="date"
+              selected={date}
+              onChange={handleDate}
+            />
+            <input id="date" hidden />
+          </label>
           <br />
-          <DatePicker
-            name="date"
-            type="date"
-            id="date"
-            selected={date}
-            onChange={handleDate}
-          />
-          <input id="date" hidden />
-        </label>
-        <br />
-        <div className="text-center">
-          <button type="submit" onClick={handleSubmit}>Submit</button>
-        </div>
-      </form>
+          <div className="text-center">
+            <button type="submit" className={`${BookTicketStyles.createTicket} btn`} onClick={handleSubmit}>Submit</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
