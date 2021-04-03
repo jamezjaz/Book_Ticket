@@ -6,19 +6,20 @@ import SideNav from '../components/SideNav';
 import menu from '../assets/hamburger-menu.png';
 import fetchTickets from '../apiRequests/getTicketRequest';
 import Ticket from '../components/Ticket';
+import deleteTicket from '../apiRequests/delTicketRequest';
 
 const Tickets = props => {
-  // const { tickets } = props;
   const tickets = useSelector(state => state.ticket.tickets);
-  // console.log(' All Ticket objectsssssss', tickets);
 
-  // const ticketId = parseInt(match.params.id, 10);
-  // const filteredTickets = tickets.filter(ticket => ticket.id === ticketId);
+  const handleDelTicket = ticket => {
+    const { removeTicket } = props;
+    removeTicket(ticket);
+    console.log('Deleted');
+  };
 
   useEffect(() => {
     const { fetchedTickets } = props;
     fetchedTickets(tickets);
-    // console.log('Fetched Tickets', tickets);
   }, []);
 
   return (
@@ -39,12 +40,21 @@ const Tickets = props => {
           </Dropdown.Menu>
         </Dropdown>
         <div>
-          {tickets.map(ticket => (
-            <Ticket
-              key={ticket.id}
-              ticket={ticket}
-            />
-          ))}
+          {/* {ticket && (
+            <div>
+              {localStorage.getItem('ticket')}
+            </div>
+          )} */}
+          <h2>ALL TICKETS</h2>
+          <table className="d-flex flex-wrap">
+            {tickets.map(ticket => (
+              <Ticket
+                key={ticket.id}
+                ticket={ticket}
+                removeBtn={handleDelTicket}
+              />
+            ))}
+          </table>
         </div>
       </div>
     </div>
@@ -52,16 +62,14 @@ const Tickets = props => {
 };
 
 Tickets.propTypes = {
-  // tickets: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   fetchedTickets: PropTypes.func.isRequired,
+  removeTicket: PropTypes.func.isRequired,
+  // ticket: PropTypes.objectOf(PropTypes.any),
 };
-
-// const mapStateToProps = state => ({
-//   tickets: state.ticket.tickets,
-// });
 
 const mapDispatchToprops = dispatch => ({
   fetchedTickets: tickets => dispatch(fetchTickets(tickets)),
+  removeTicket: ticket => dispatch(deleteTicket(ticket)),
 });
 
 export default connect(null, mapDispatchToprops)(Tickets);

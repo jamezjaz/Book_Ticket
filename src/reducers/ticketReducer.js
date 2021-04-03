@@ -1,14 +1,22 @@
 import {
   BOOK_TICKET,
+  DEL_TICKET,
   FETCH_TICKET_FAILURE,
   FETCH_TICKET_REQUEST,
   FETCH_TICKET_SUCCESS,
 } from '../actions/tickets/actionTypes';
 
 const initialTicket = {
+  ticket: {},
   loading: false,
   tickets: [],
   error: '',
+};
+
+const deleteTicket = (state, action) => {
+  const index = state.map(item => item.id).indexOf(action.id);
+  const newState = state.slice(0, index).concat(state.slice(index + 1));
+  return newState;
 };
 
 const ticketReducer = (state = initialTicket, action) => {
@@ -28,7 +36,8 @@ const ticketReducer = (state = initialTicket, action) => {
     case FETCH_TICKET_SUCCESS:
       return {
         loading: false,
-        tickets: Object.values(action.payload),
+        tickets: action.payload.id ? state.tickets : Object.values(action.payload),
+        ticket: action.ticket,
         error: '',
       };
     case FETCH_TICKET_FAILURE:
@@ -36,6 +45,11 @@ const ticketReducer = (state = initialTicket, action) => {
         ...state,
         loading: false,
         error: action.payload,
+      };
+    case DEL_TICKET:
+      return {
+        ...state,
+        deleteTicket,
       };
     default:
       return state;

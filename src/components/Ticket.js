@@ -1,19 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import { Link } from 'react-router-dom';
+import TicketStyles from '../styles/TicketStyles.module.css';
 
 const Ticket = props => {
-  const { ticket } = props;
+  const { ticket, removeBtn } = props;
 
   return (
-    <div className="container-fluid">
-      <div className="border m-4">
-        <h3>{ticket.airline_name}</h3>
-        <h3>{ticket.username}</h3>
-        <h3>{ticket.city}</h3>
-        <h3>{ticket.date}</h3>
-      </div>
-    </div>
+    <tbody className="border m-2">
+      <tr>
+        <td>
+          <div className={TicketStyles.ticketDetails}>
+            <h3>{`Airline: ${ticket.airline_name}`}</h3>
+            <h3>{`Username: ${ticket.username}`}</h3>
+            <h3>{`City: ${ticket.city}`}</h3>
+            <h3>{`Date: ${ticket.date}`}</h3>
+            <button type="button" className={`${TicketStyles.btn} btn`} onClick={() => removeBtn(ticket)}>Delete Ticket</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
   );
 };
 
@@ -24,6 +30,7 @@ Ticket.propTypes = {
     city: PropTypes.string,
     date: PropTypes.string,
   }).isRequired,
+  removeBtn: PropTypes.func.isRequired,
 };
 
 export default Ticket;

@@ -2,12 +2,13 @@ import axios from 'axios';
 import { fetchTicketFailure, fetchTicketRequestAction, fetchTicketSuccessAction } from '../actions/tickets/actionCreators';
 import header, { url } from './apiLink';
 
-const bookTicket = ticketObj => dispatch => {
+const fetchTicketDetails = ticket => dispatch => {
   dispatch(fetchTicketRequestAction());
-  axios.post(`${url}/tickets`, ticketObj, header)
+  axios.get(`${url}/tickets/${ticket.id}`, header)
     .then(response => {
-      const ticketRes = response.data;
-      dispatch(fetchTicketSuccessAction(ticketRes, ticketRes));
+      const ticketsRes = response.data;
+      dispatch(fetchTicketSuccessAction(ticketsRes));
+      console.log('Ticket responses', ticketsRes);
     })
     .catch(error => {
       const errorMsg = error.message;
@@ -15,4 +16,4 @@ const bookTicket = ticketObj => dispatch => {
     });
 };
 
-export default bookTicket;
+export default fetchTicketDetails;
