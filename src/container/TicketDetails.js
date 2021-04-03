@@ -6,6 +6,7 @@ import fetchTicketDetails from '../apiRequests/getTicketDetails';
 import menu from '../assets/hamburger-menu.png';
 import SideNav from '../components/SideNav';
 import TicketDetailsStyles from '../styles/TicketDetailsStyles.module.css';
+import deleteTicket from '../apiRequests/delTicketRequest';
 
 const TicketDetails = props => {
   const [ticket, setTicket] = useState(null);
@@ -26,6 +27,11 @@ const TicketDetails = props => {
     console.log('Dispatched Ticket', ticket);
     console.log(id);
   }, []);
+
+  const handleDelTicket = ticket => {
+    dispatch(deleteTicket(ticket));
+    console.log('Deleted Successfully');
+  };
 
   return (
     <div className="d-flex">
@@ -55,6 +61,7 @@ const TicketDetails = props => {
                   <th scope="col">Username</th>
                   <th scope="col">City</th>
                   <th scope="col">Date</th>
+                  <th scope="col">Cancel Ticket</th>
                 </tr>
               </thead>
               <tbody className={TicketDetailsStyles.ticketDetails}>
@@ -63,6 +70,9 @@ const TicketDetails = props => {
                   <td>{ticket.username}</td>
                   <td>{ticket.city}</td>
                   <td>{ticket.date}</td>
+                  <td>
+                    <button type="button" className={`${TicketDetailsStyles.btn} btn`} onClick={() => handleDelTicket(ticket)}>Delete Ticket</button>
+                  </td>
                 </tr>
               </tbody>
             </table>
