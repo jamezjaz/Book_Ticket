@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Dropdown } from 'react-bootstrap';
 import fetchTicketDetails from '../apiRequests/getTicketDetails';
-import menu from '../assets/hamburger-menu.png';
 import SideNav from '../components/SideNav';
 import TicketDetailsStyles from '../styles/TicketDetailsStyles.module.css';
 import deleteTicket from '../apiRequests/delTicketRequest';
+import DropDown from '../components/DropDown';
 
 const TicketDetails = props => {
   const [ticket, setTicket] = useState(null);
@@ -39,17 +38,7 @@ const TicketDetails = props => {
         <SideNav />
       </div>
       <div className="col-10">
-        <Dropdown className="d-flex d-md-none mb-5">
-          <Dropdown.Toggle className="bg-white" id="dropdown-basic">
-            <img src={menu} alt="menu" />
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu>
-            <Dropdown.Item href="/airlinesList" active>AIRLINES</Dropdown.Item>
-            <Dropdown.Item href="/tickets">TICKETS</Dropdown.Item>
-            <Dropdown.Item href="/">LogOut</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
+        <DropDown />
         <h3>TICKET DETAILS</h3>
         {ticket && (
           <div>

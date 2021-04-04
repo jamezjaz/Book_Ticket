@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
-import { Dropdown } from 'react-bootstrap';
 import { connect, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import SideNav from '../components/SideNav';
-import menu from '../assets/hamburger-menu.png';
 import fetchTickets from '../apiRequests/getTicketRequest';
 import Ticket from '../components/Ticket';
 import deleteTicket from '../apiRequests/delTicketRequest';
+import DropDown from '../components/DropDown';
 
 const Tickets = props => {
   const tickets = useSelector(state => state.ticket.tickets);
@@ -28,17 +27,7 @@ const Tickets = props => {
         <SideNav />
       </div>
       <div className="col-10">
-        <Dropdown className="d-flex d-md-none mb-5">
-          <Dropdown.Toggle className="bg-white" id="dropdown-basic">
-            <img src={menu} alt="menu" />
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu>
-            <Dropdown.Item href="/airlinesList" active>AIRLINES</Dropdown.Item>
-            <Dropdown.Item href="/tickets">TICKETS</Dropdown.Item>
-            <Dropdown.Item href="/">LogOut</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
+        <DropDown />
         <div>
           {/* {ticket && (
             <div>

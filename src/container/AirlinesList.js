@@ -3,15 +3,14 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
-import { Dropdown } from 'react-bootstrap';
 import Loader from 'react-loader-spinner';
 import fetchAirlines from '../apiRequests/getAirlineRequest';
 import Airline from '../components/Airline';
 import responsive from '../constants/respCarousel';
 import '../styles/AliceCarousel.css';
 import SideNav from '../components/SideNav';
-import menu from '../assets/hamburger-menu.png';
 import AirlinesListStyles from '../styles/AirlinesListStyles.module.css';
+import DropDown from '../components/DropDown';
 
 const AirlinesList = props => {
   const [loading, setLoading] = useState(true);
@@ -43,17 +42,7 @@ const AirlinesList = props => {
         )
         : (
           <div className="col-10 px-0">
-            <Dropdown className="d-flex d-md-none mb-5">
-              <Dropdown.Toggle className="bg-white" id="dropdown-basic">
-                <img src={menu} alt="menu" />
-              </Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                <Dropdown.Item href="/airlinesList" active>AIRLINES</Dropdown.Item>
-                <Dropdown.Item href="/tickets">TICKETS</Dropdown.Item>
-                <Dropdown.Item href="/">LogOut</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
+            <DropDown />
             <div className="m-2">
               <h3 className={AirlinesListStyles.heading}>TRENDING AIRLINES</h3>
               <h6 className={AirlinesListStyles.para}>Please, select an airline</h6>

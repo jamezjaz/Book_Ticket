@@ -3,13 +3,12 @@ import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { connect, useDispatch, useSelector } from 'react-redux';
-import { Dropdown } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 import bookTicket from '../apiRequests/bookTicketRequest';
 import fetchTickets from '../apiRequests/getTicketRequest';
 import SideNav from '../components/SideNav';
-import menu from '../assets/hamburger-menu.png';
 import BookTicketStyles from '../styles/BookTicketStyles.module.css';
+import DropDown from '../components/DropDown';
 
 const BookTicket = props => {
   const { ticket } = props;
@@ -73,17 +72,7 @@ const BookTicket = props => {
         <SideNav />
       </div>
       <div className="col-10 px-0">
-        <Dropdown className="d-flex d-md-none mb-5">
-          <Dropdown.Toggle className="bg-white" id="dropdown-basic">
-            <img src={menu} alt="menu" />
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu>
-            <Dropdown.Item href="/airlinesList" active>AIRLINES</Dropdown.Item>
-            <Dropdown.Item href="/tickets">TICKETS</Dropdown.Item>
-            <Dropdown.Item href="/tickets">LogOut</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
+        <DropDown />
         <h5>Please, re-confirm these details!</h5>
         <form>
           <label htmlFor="airlineName" className="text-left">
