@@ -2,12 +2,13 @@ import axios from 'axios';
 import { fetchTicketFailure, fetchTicketRequestAction, fetchTicketSuccessAction } from '../actions/tickets/actionCreators';
 import header, { url } from './apiLink';
 
-const bookTicket = ticketObj => dispatch => {
+const bookTicket = (ticketObj, callback) => dispatch => {
   dispatch(fetchTicketRequestAction());
   axios.post(`${url}/tickets`, ticketObj, header)
-    .then(response => {
+    .then(async response => {
       const ticketRes = response.data;
-      dispatch(fetchTicketSuccessAction(ticketRes, ticketRes));
+      await dispatch(fetchTicketSuccessAction(ticketRes, ticketRes));
+      callback(ticketRes.id);
     })
     .catch(error => {
       const errorMsg = error.message;

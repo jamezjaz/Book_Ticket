@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import fetchTicketDetails from '../apiRequests/getTicketDetails';
@@ -8,26 +8,37 @@ import deleteTicket from '../apiRequests/delTicketRequest';
 import DropDown from '../components/DropDown';
 
 const TicketDetails = props => {
-  const [ticket, setTicket] = useState(null);
-  const { match } = props;
+  // const [ticket, setTicket] = useState(null);
+  const { ticket, match } = props;
   const { id } = match.params;
-  console.log(ticket);
+  console.log('TICKET', ticket);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!ticket || !ticket.id) {
-      dispatch(fetchTicketDetails({
-        ticketId: id,
-      }));
-    }
-    const localTicket = localStorage.getItem('ticket');
-    setTicket(JSON.parse(localTicket));
-    console.log('Dispatched Ticket', ticket);
-    console.log(id);
-  }, []);
+    // if (!ticket || !ticket.id) {
+    dispatch(fetchTicketDetails({
+      id,
+    }));
+    // }
+    // const localTicket = localStorage.getItem('ticket');
+    // setTicket(JSON.parse(localTicket));
+    // console.log('Dispatched Ticket', ticket);
+    // console.log(id);
+  }, [id]);
+
+  // useEffect(() => {
+  //   dispatch(fetchAirlineDetails({
+  //     id,
+  //   }));
+  // }, []);
+
+  useEffect(() => {
+    console.log('HELLO WORLD', ticket);
+  }, [ticket]);
 
   const handleDelTicket = ticket => {
+    localStorage.removeItem(ticket);
     dispatch(deleteTicket(ticket));
     console.log('Deleted Successfully');
   };
@@ -89,6 +100,7 @@ TicketDetails.propTypes = {
 
 const mapStateToProps = state => ({
   ticket: state.ticket.ticket,
+  airline: state.airline.airline,
 });
 
 export default connect(mapStateToProps, null)(TicketDetails);

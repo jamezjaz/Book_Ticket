@@ -19,7 +19,7 @@ const Tickets = props => {
   useEffect(() => {
     const { fetchedTickets } = props;
     fetchedTickets(tickets);
-  }, []);
+  }, [tickets]);
 
   return (
     <div className="d-flex container-fluid">

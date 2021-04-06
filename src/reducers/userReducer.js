@@ -21,7 +21,7 @@ const userReducer = (state = initialState, action) => {
     case USER_API_SUCCESS:
       return {
         loading: false,
-        user: Object.keys(action.payload),
+        user: Object.values(action.payload),
         error: '',
         loginStatus: true,
       };

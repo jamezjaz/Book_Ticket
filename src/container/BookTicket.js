@@ -6,12 +6,12 @@ import { connect, useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import bookTicket from '../apiRequests/bookTicketRequest';
 import fetchTickets from '../apiRequests/getTicketRequest';
-import SideNav from '../components/SideNav';
+// import SideNav from '../components/SideNav';
 import BookTicketStyles from '../styles/BookTicketStyles.module.css';
-import DropDown from '../components/DropDown';
+// import DropDown from '../components/DropDown';
 
 const BookTicket = props => {
-  const { ticket } = props;
+  // const { ticket } = props;
   const dispatch = useDispatch();
   const user = useSelector(state => state.user.user);
   const tickets = useSelector(state => state.ticket.tickets);
@@ -51,16 +51,16 @@ const BookTicket = props => {
       date,
       user_id: userId,
     };
-    dispatch(bookTicket(newTicket));
+    dispatch(bookTicket(newTicket, redirectToTicketDetails));
   };
 
-  useEffect(() => {
-    console.log(ticket);
-    if (ticket.id) {
-      localStorage.setItem('ticket', JSON.stringify(ticket));
-      redirectToTicketDetails(ticket.id);
-    }
-  }, [ticket]);
+  // useEffect(() => {
+  //   console.log(ticket);
+  //   if (ticket.id) {
+  //     localStorage.setItem('ticket', JSON.stringify(ticket));
+  //     // redirectToTicketDetails(ticket.id);
+  //   }
+  // }, [ticket]);
 
   useEffect(() => {
     dispatch(fetchTickets(tickets));
@@ -68,11 +68,10 @@ const BookTicket = props => {
 
   return (
     <div className="d-flex container-fluid">
-      <div className="col-2 d-none d-md-flex border min-vh-100 px-0">
+      {/* <div className="col-2 d-none d-md-flex border min-vh-100 px-0">
         <SideNav />
-      </div>
+      </div> */}
       <div className="col-10 px-0">
-        <DropDown />
         <h5>Please, re-confirm these details!</h5>
         <form>
           <label htmlFor="airlineName" className="text-left">
@@ -117,7 +116,14 @@ const BookTicket = props => {
 
 BookTicket.propTypes = {
   history: PropTypes.instanceOf(Object).isRequired,
-  ticket: PropTypes.instanceOf(Object).isRequired,
+  // ticket: PropTypes.instanceOf(Object).isRequired,
+  // airline: PropTypes.instanceOf(Object).isRequired,
+  // airlines: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  // match: PropTypes.shape({
+  //   params: PropTypes.shape({
+  //     id: PropTypes.string,
+  //   }),
+  // }).isRequired,
 };
 
 const mapStateToProps = state => ({

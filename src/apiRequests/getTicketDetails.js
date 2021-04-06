@@ -7,7 +7,7 @@ const fetchTicketDetails = ticket => dispatch => {
   axios.get(`${url}/tickets/${ticket.id}`, header)
     .then(response => {
       const ticketsRes = response.data;
-      dispatch(fetchTicketSuccessAction(ticketsRes));
+      dispatch(fetchTicketSuccessAction(ticketsRes, ticketsRes));
       console.log('Ticket responses', ticketsRes);
     })
     .catch(error => {
