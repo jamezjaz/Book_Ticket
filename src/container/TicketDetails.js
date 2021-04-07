@@ -8,39 +8,20 @@ import deleteTicket from '../apiRequests/delTicketRequest';
 import DropDown from '../components/DropDown';
 
 const TicketDetails = props => {
-  // const [ticket, setTicket] = useState(null);
   const { ticket, match } = props;
   const { id } = match.params;
-  console.log('TICKET', ticket);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // if (!ticket || !ticket.id) {
     dispatch(fetchTicketDetails({
       id,
     }));
-    // }
-    // const localTicket = localStorage.getItem('ticket');
-    // setTicket(JSON.parse(localTicket));
-    // console.log('Dispatched Ticket', ticket);
-    // console.log(id);
   }, [id]);
-
-  // useEffect(() => {
-  //   dispatch(fetchAirlineDetails({
-  //     id,
-  //   }));
-  // }, []);
-
-  useEffect(() => {
-    console.log('HELLO WORLD', ticket);
-  }, [ticket]);
 
   const handleDelTicket = ticket => {
     localStorage.removeItem(ticket);
     dispatch(deleteTicket(ticket));
-    console.log('Deleted Successfully');
   };
 
   return (

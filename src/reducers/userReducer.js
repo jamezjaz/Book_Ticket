@@ -8,9 +8,10 @@ import {
 const initialState = {
   loading: false,
   loginStatus: false,
-  user: {},
+  user: [],
   error: '',
 };
+
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case USER_API_REQUEST:
@@ -20,6 +21,7 @@ const userReducer = (state = initialState, action) => {
       };
     case USER_API_SUCCESS:
       return {
+        ...state,
         loading: false,
         user: Object.values(action.payload),
         error: '',
@@ -27,16 +29,17 @@ const userReducer = (state = initialState, action) => {
       };
     case USER_API_FAILURE:
       return {
+        ...state,
         loading: false,
         loginStatus: false,
-        user: {},
+        user: [],
         error: action.payload,
       };
     case LOGOUT_USER:
       return {
         loading: false,
         loginStatus: false,
-        user: {},
+        user: [],
       };
     default:
       return state;

@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import login from '../apiRequests/loginRequest';
 import LoginStyles from '../styles/LoginStyles.module.css';
 
 const Login = props => {
+  const user = useSelector(state => state.user);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
   const handleLogin = () => {
     const { history } = props;
+    localStorage.setItem('user', user);
     history.push('/airlinesList');
   };
 
@@ -21,7 +23,6 @@ const Login = props => {
     } else {
       setPassword(event.target.value);
     }
-    // console.log(event.target);
   };
 
   const handleSubmit = event => {
@@ -34,6 +35,7 @@ const Login = props => {
     if (email || password !== '') {
       setErrorMsg('');
       signIn(user);
+      // localStorage.setItem('user', user);
       handleLogin();
     } else {
       setErrorMsg('Please, enter correct credentials!');

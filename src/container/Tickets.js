@@ -13,7 +13,6 @@ const Tickets = props => {
   const handleDelTicket = ticket => {
     const { removeTicket } = props;
     removeTicket(ticket);
-    console.log('Deleted');
   };
 
   useEffect(() => {
@@ -53,7 +52,6 @@ const Tickets = props => {
 Tickets.propTypes = {
   fetchedTickets: PropTypes.func.isRequired,
   removeTicket: PropTypes.func.isRequired,
-  // ticket: PropTypes.objectOf(PropTypes.any),
 };
 
 const mapDispatchToprops = dispatch => ({
