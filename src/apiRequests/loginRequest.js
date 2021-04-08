@@ -7,7 +7,12 @@ const login = user => dispatch => {
   axios.post(`${url}/auth/login`, user, header)
     .then(response => {
       const userRes = response.data;
-      dispatch(userApiSuccess(userRes));
+      if (userRes.message === 'Login Successful') {
+        // console.log('RESPONSE', userRes);
+        dispatch(userApiSuccess(userRes));
+        localStorage.setItem('user', JSON.stringify(user));
+        window.location.replace('/airlinesList');
+      }
     })
     .catch(error => {
       const errorMsg = error.message;

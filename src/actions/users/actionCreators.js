@@ -9,9 +9,9 @@ export const userApiRequest = () => ({
   type: USER_API_REQUEST,
 });
 
-export const userApiSuccess = user => ({
+export const userApiSuccess = data => ({
   type: USER_API_SUCCESS,
-  payload: user,
+  payload: data.user.username,
 });
 
 export const userApiFailure = error => ({

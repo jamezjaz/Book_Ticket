@@ -17,13 +17,13 @@ const BookTicket = props => {
     airId,
   } = props;
   const dispatch = useDispatch();
-  const user = useSelector(state => state.user);
-  const { username } = user;
+  const user = useSelector(state => state.user.user);
+  // console.log('HELLO USER', user);
 
   const tickets = useSelector(state => state.ticket.tickets);
   const [airlineName, setAirlineName] = useState(name);
   const [price, setPrice] = useState(precio);
-  const [userName, setUserName] = useState(username);
+  const [userName, setUserName] = useState(user);
   const [location, setLocation] = useState(city);
   const [userId, setUserId] = useState(uId);
   const [airlineId, setAirlineId] = useState(airId);
@@ -56,6 +56,7 @@ const BookTicket = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
+    // console.log('USERNAME', user, userName);
     const newTicket = {
       airline_name: airlineName,
       price,
@@ -79,13 +80,27 @@ const BookTicket = props => {
           <label htmlFor="airlineName" className="text-left">
             Name Of Airline:
             <br />
-            <input type="text" name="airlineName" id="airlineName" value={name} onChange={event => handleChange(event)} readOnly />
+            <input
+              type="text"
+              name="airlineName"
+              id="airlineName"
+              value={name}
+              onChange={event => handleChange(event)}
+              readOnly
+            />
           </label>
           <br />
           <label htmlFor="price" className="text-left">
             Price:
             <br />
-            <input type="text" name="price" id="price" value={`$ ${precio}`} onChange={event => handleChange(event)} readOnly />
+            <input
+              type="text"
+              name="price"
+              id="price"
+              value={`$ ${precio}`}
+              onChange={event => handleChange(event)}
+              readOnly
+            />
           </label>
           <label htmlFor="username" className="text-left">
             Username:
@@ -94,22 +109,44 @@ const BookTicket = props => {
               type="text"
               name="username"
               id="username"
-              value={username}
+              value={user}
               onChange={event => handleChange(event)}
+              readOnly
             />
           </label>
           <br />
           <label htmlFor="location" className="text-left">
             Location:
             <br />
-            <input type="text" name="location" id="location" value={city} onChange={event => handleChange(event)} readOnly />
+            <input
+              type="text"
+              name="location"
+              id="location"
+              value={city}
+              onChange={event => handleChange(event)}
+              readOnly
+            />
           </label>
           <br />
           <label htmlFor="userId" className="text-left">
-            <input type="text" name="userId" id="userId" value={uId} onChange={event => handleChange(event)} hidden />
+            <input
+              type="text"
+              name="userId"
+              id="userId"
+              value={uId}
+              onChange={event => handleChange(event)}
+              hidden
+            />
           </label>
           <label htmlFor="airlineId" className="text-left">
-            <input type="text" name="airlineId" id="airlineId" value={airId} onChange={event => handleChange(event)} hidden />
+            <input
+              type="text"
+              name="airlineId"
+              id="airlineId"
+              value={airId}
+              onChange={event => handleChange(event)}
+              hidden
+            />
           </label>
           <label htmlFor="date" className="text-left">
             Date:
@@ -125,7 +162,13 @@ const BookTicket = props => {
           </label>
           <br />
           <div className="text-center">
-            <button type="submit" className={`${BookTicketStyles.createTicket} btn`} onClick={handleSubmit}>Submit</button>
+            <button
+              type="submit"
+              className={`${BookTicketStyles.createTicket} btn`}
+              onClick={handleSubmit}
+            >
+              Book Ticket
+            </button>
           </div>
         </form>
       </div>

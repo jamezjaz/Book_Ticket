@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
-import { connect, useSelector } from 'react-redux';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import login from '../apiRequests/loginRequest';
 import LoginStyles from '../styles/LoginStyles.module.css';
 
 const Login = props => {
-  const user = useSelector(state => state.user);
+  // const user = useSelector(state => state.user);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
 
-  const handleLogin = () => {
-    const { history } = props;
-    localStorage.setItem('user', user);
-    history.push('/airlinesList');
-  };
+  // const handleLogin = () => {
+  //   // console.log(user, props);
+  //   localStorage.setItem('user', JSON.stringify(user));
+  // };
 
   const handleChange = event => {
     if (event.target.name === 'email') {
@@ -35,8 +34,7 @@ const Login = props => {
     if (email || password !== '') {
       setErrorMsg('');
       signIn(user);
-      // localStorage.setItem('user', user);
-      handleLogin();
+      // handleLogin();
     } else {
       setErrorMsg('Please, enter correct credentials!');
     }
@@ -84,7 +82,6 @@ const Login = props => {
 
 Login.propTypes = {
   signIn: PropTypes.func.isRequired,
-  history: PropTypes.instanceOf(Object).isRequired,
 };
 
 const mapDispatchToprops = dispatch => ({

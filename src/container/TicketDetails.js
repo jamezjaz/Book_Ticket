@@ -20,8 +20,10 @@ const TicketDetails = props => {
   }, [id]);
 
   const handleDelTicket = ticket => {
+    const { history } = props;
     localStorage.removeItem(ticket);
     dispatch(deleteTicket(ticket));
+    history.push('/tickets');
   };
 
   return (
@@ -34,7 +36,6 @@ const TicketDetails = props => {
         <h3>TICKET DETAILS</h3>
         {ticket && (
           <div>
-            {/* {localStorage.getItem('ticket')} */}
             <table className="table">
               <thead className="thead-dark">
                 <tr>
@@ -77,6 +78,7 @@ TicketDetails.propTypes = {
       id: PropTypes.string,
     }),
   }).isRequired,
+  history: PropTypes.instanceOf(Object).isRequired,
 };
 
 const mapStateToProps = state => ({

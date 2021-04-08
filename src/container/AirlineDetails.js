@@ -53,7 +53,6 @@ AirlineDetails.propTypes = {
 
 const mapStateToProps = state => ({
   airlines: state.airline.airlines,
-  user: state.user,
 });
 
 export default connect(mapStateToProps, null)(AirlineDetails);

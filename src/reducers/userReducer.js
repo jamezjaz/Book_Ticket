@@ -8,7 +8,7 @@ import {
 const initialState = {
   loading: false,
   loginStatus: false,
-  user: [],
+  user: '',
   error: '',
 };
 
@@ -23,7 +23,7 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        user: Object.values(action.payload),
+        user: action.payload,
         error: '',
         loginStatus: true,
       };
