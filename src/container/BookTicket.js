@@ -17,8 +17,7 @@ const BookTicket = props => {
     airId,
   } = props;
   const dispatch = useDispatch();
-  const user = useSelector(state => state.user);
-  // console.log('HELLO USER', user);
+  const user = JSON.parse(localStorage.getItem('user'));
 
   const tickets = useSelector(state => state.ticket.tickets);
   const [airlineName, setAirlineName] = useState(name);
@@ -56,7 +55,6 @@ const BookTicket = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    // console.log('USERNAME', user, userName);
     const newTicket = {
       airline_name: airlineName,
       price,
