@@ -17,7 +17,7 @@ const BookTicket = props => {
     airId,
   } = props;
   const dispatch = useDispatch();
-  const user = useSelector(state => state.user.user);
+  const user = useSelector(state => state.user);
   // console.log('HELLO USER', user);
 
   const tickets = useSelector(state => state.ticket.tickets);
@@ -67,6 +67,7 @@ const BookTicket = props => {
       airline_id: airlineId,
     };
     dispatch(bookTicket(newTicket, redirectToTicketDetails));
+    // console.log('USERNAME2', user, userName);
   };
 
   useEffect(() => {

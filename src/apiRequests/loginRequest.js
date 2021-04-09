@@ -8,9 +8,10 @@ const login = user => dispatch => {
     .then(response => {
       const userRes = response.data;
       if (userRes.message === 'Login Successful') {
-        // console.log('RESPONSE', userRes);
         dispatch(userApiSuccess(userRes));
-        localStorage.setItem('user', JSON.stringify(user));
+        // console.log('RESPONSE', user);
+        // console.log('RESPONSE2', userRes);
+        localStorage.setItem('user', JSON.stringify(userRes.user.username));
         window.location.replace('/airlinesList');
       }
     })
