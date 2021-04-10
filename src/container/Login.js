@@ -1,20 +1,15 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import login from '../apiRequests/loginRequest';
 import LoginStyles from '../styles/LoginStyles.module.css';
 
 const Login = props => {
-  // const user = useSelector(state => state.user);
+  const user = useSelector(state => state.user);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
-
-  // const handleLogin = () => {
-  //   // console.log(user, props);
-  //   localStorage.setItem('user', JSON.stringify(user));
-  // };
 
   const handleChange = event => {
     if (event.target.name === 'email') {
@@ -34,7 +29,6 @@ const Login = props => {
     if (email || password !== '') {
       setErrorMsg('');
       signIn(user);
-      // handleLogin();
     } else {
       setErrorMsg('Please, enter correct credentials!');
     }
@@ -75,6 +69,7 @@ const Login = props => {
           <Link to="/register">Register</Link>
         </div>
         {errorMsg === '' ? '' : <h3 className="text-danger">{errorMsg}</h3>}
+        {user.error === '' ? '' : <h3 className="text-danger">Incorrect email or password</h3>}
       </form>
     </>
   );
