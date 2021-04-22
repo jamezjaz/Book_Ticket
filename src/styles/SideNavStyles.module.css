@@ -1,0 +1,50 @@
+.links {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 3rem;
+}
+
+.links a {
+  text-decoration: none;
+  color: black;
+  height: 3rem;
+}
+
+.links a:hover {
+  background-color: rgb(151, 191, 15) !important;
+  color: white;
+  padding-top: 0.7rem;
+}
+
+/* .links a:active {
+  background-color: rgb(151,191,15) !important;
+  color: white;
+  padding-top: 0.7rem;
+} */
+
+/* .links a:not(.active):hover {
+  background-color: #555;
+  color: white;
+} */
+
+.logout {
+  position: relative;
+  top: 20rem;
+  background-color: rgb(151, 191, 15);
+  font-size: 18px;
+  color: whitesmoke;
+  padding: 0.5rem 1.7rem;
+  border-radius: 1.5rem;
+}
+
+.logout:hover {
+  background-color: rgb(54, 70, 3);
+  color: whitesmoke;
+}
+
+.icons {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+}

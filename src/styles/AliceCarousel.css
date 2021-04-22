@@ -1,0 +1,30 @@
+.alice-carousel__prev-btn,
+.alice-carousel__next-btn {
+  font-size: 1.5rem;
+}
+
+.alice-carousel__prev-btn {
+  text-align: left;
+}
+
+.alice-carousel__next-btn {
+  text-align: right;
+}
+
+.alice-carousel__prev-btn-item,
+.alice-carousel__next-btn-item {
+  color: white;
+  background-color: rgb(151, 191, 15);
+}
+
+.alice-carousel__prev-btn-item {
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  padding: 10px 10px 10px 25px;
+}
+
+.alice-carousel__next-btn-item {
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  padding: 10px 25px 10px 10px;
+}

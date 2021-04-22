@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Register matches Register snapshot 1`] = `
+<div
+  data-testid="container"
+>
+  <form
+    className="registerForm"
+    data-testid="form"
+    onSubmit={[Function]}
+  >
+    <a
+      className="homeLink"
+      href="/"
+      onClick={[Function]}
+    >
+      <button
+        className="homeBtn btn"
+        type="button"
+      >
+        Home
+      </button>
+    </a>
+    <label
+      className="text-left"
+      htmlFor="name"
+    >
+      Name:
+      <br />
+      <input
+        id="name"
+        name="name"
+        onChange={[Function]}
+        placeholder="Enter your name"
+        type="text"
+      />
+    </label>
+    <br />
+    <label
+      className="text-left"
+      htmlFor="username"
+    >
+      Username:
+      <br />
+      <input
+        id="username"
+        name="username"
+        onChange={[Function]}
+        placeholder="Enter your username"
+        type="text"
+      />
+    </label>
+    <br />
+    <label
+      className="text-left"
+      htmlFor="email"
+    >
+      Email:
+      <br />
+      <input
+        id="email"
+        name="email"
+        onChange={[Function]}
+        placeholder="Enter your email"
+        type="text"
+      />
+    </label>
+    <br />
+    <label
+      className="text-left"
+      htmlFor="password"
+    >
+      Password:
+      <br />
+      <input
+        id="password"
+        name="password"
+        onChange={[Function]}
+        placeholder="Enter your password"
+        type="password"
+      />
+    </label>
+    <br />
+    <button
+      className="btn btn"
+      onClick={[Function]}
+      type="submit"
+    >
+      Register
+    </button>
+    <div>
+      <span>
+        Already have an account? 
+      </span>
+      <a
+        href="/login"
+        onClick={[Function]}
+      >
+        Login
+      </a>
+    </div>
+    
+  </form>
+</div>
+`;

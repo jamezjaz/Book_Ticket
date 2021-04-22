@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login matches Login snapshot 1`] = `
+<form
+  className="loginForm"
+  data-testid="form"
+  name="myForm"
+  onSubmit={[Function]}
+>
+  <a
+    className="homeLink"
+    href="/"
+    onClick={[Function]}
+    style={
+      Object {
+        "textDecoration": "none",
+      }
+    }
+  >
+    <button
+      className="homeBtn btn"
+      data-testid="home"
+      type="button"
+    >
+      Home
+    </button>
+  </a>
+  <h4>
+    Login
+  </h4>
+  <label
+    className="text-left"
+    htmlFor="email"
+  >
+    Email:
+    <br />
+    <input
+      id="email"
+      name="email"
+      onChange={[Function]}
+      placeholder="Enter your email"
+      type="text"
+    />
+  </label>
+  <br />
+  <label
+    className="text-left"
+    htmlFor="password"
+  >
+    Password:
+    <br />
+    <input
+      id="password"
+      name="password"
+      onChange={[Function]}
+      placeholder="Enter your password"
+      type="password"
+    />
+  </label>
+  <br />
+  <button
+    className="btn btn"
+    onClick={[Function]}
+    type="submit"
+  >
+    Login
+  </button>
+  <div>
+    <span>
+      Don't have an account? 
+    </span>
+    <a
+      href="/register"
+      onClick={[Function]}
+    >
+      Register
+    </a>
+  </div>
+  
+</form>
+`;

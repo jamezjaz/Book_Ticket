@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SideNav /> matches SideNav snapshot 1`] = `
+<div
+  className="container-fluid"
+>
+  <button
+    className="rounded border-0"
+    type="button"
+  >
+    <img
+      alt="logo"
+      src="paper-airplane.png"
+    />
+  </button>
+  <div
+    className="links links"
+  >
+    <a
+      aria-current={null}
+      className="active"
+      href="/airlinesList"
+      onClick={[Function]}
+    >
+      AIRLINES
+    </a>
+    <a
+      aria-current={null}
+      className="active"
+      href="/tickets"
+      onClick={[Function]}
+    >
+      TICKETS
+    </a>
+  </div>
+  <div>
+    <button
+      className="logout btn"
+      onClick={[Function]}
+      type="submit"
+    >
+      LogOut
+    </button>
+  </div>
+  <p
+    className="icons"
+  >
+    <img
+      alt="twitter"
+      className="px-2"
+      src="https://img.icons8.com/android/24/000000/twitter.png"
+    />
+    <img
+      alt="fb"
+      className="px-2"
+      src="https://img.icons8.com/android/24/000000/facebook-new.png"
+    />
+    <img
+      alt="google"
+      className="px-2"
+      src="https://img.icons8.com/android/24/000000/google-plus.png"
+    />
+    <img
+      alt="vimeo"
+      className="px-2"
+      src="https://img.icons8.com/material/24/000000/vimeo.png"
+    />
+    <img
+      alt="pinterest"
+      className="px-2"
+      src="https://img.icons8.com/metro/24/000000/pinterest.png"
+    />
+  </p>
+</div>
+`;

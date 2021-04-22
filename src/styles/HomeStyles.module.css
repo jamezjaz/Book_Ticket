@@ -1,0 +1,38 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 180, 0);
+  color: whitesmoke;
+  height: 100vh;
+  background-image: url('https://api.freelogodesign.org/files/235c97057aaf4b0dbdf2447f75bf2ea3/thumb/logo_200x200.png?v=0');
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.heading {
+  font-size: 3rem;
+  padding: 3rem 0;
+}
+
+.btn {
+  background-color: rgb(151, 191, 15);
+  font-size: 18px;
+  color: whitesmoke;
+  padding: 0.7rem 1.7rem;
+  border-radius: 1.5rem;
+}
+
+.btn:hover {
+  background-color: rgb(54, 70, 3);
+  color: whitesmoke;
+}
+
+.leftBtn {
+  margin-right: 0.5rem;
+}
+
+.rightBtn {
+  margin-left: 0.5rem;
+}

@@ -1,0 +1,13 @@
+.spinner {
+  text-align: center;
+  flex: 1;
+  justify-content: center;
+}
+
+.heading {
+  font-weight: bolder;
+}
+
+.para {
+  color: rgb(110, 109, 109);
+}
