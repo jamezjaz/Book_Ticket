@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import { format } from 'date-fns';
 import fetchTicketDetails from '../apiRequests/getTicketDetails';
 import SideNav from '../components/SideNav';
 import TicketDetailsStyles from '../styles/TicketDetailsStyles.module.css';
@@ -25,6 +26,15 @@ const TicketDetails = props => {
     dispatch(deleteTicket(ticket));
     history.push('/tickets');
   };
+
+  const speak = msg => {
+    const sp = new SpeechSynthesisUtterance(msg);
+    [sp.voice] = speechSynthesis.getVoices();
+    speechSynthesis.speak(sp);
+  };
+  speak(`Hello ${ticket.username}!, `
+  + 'You\'ve successfully booked a ticket '
+  + 'Thank you for your patronage, have fun, and enjoy!.');
 
   return (
     <div className="d-flex">
@@ -51,7 +61,7 @@ const TicketDetails = props => {
                   <th scope="row">{ticket.airline_name}</th>
                   <td>{ticket.username}</td>
                   <td>{ticket.city}</td>
-                  <td>{ticket.date}</td>
+                  <td>{format(new Date(ticket.date), 'MM/dd/yyyy')}</td>
                   <td>
                     <button type="button" className={`${TicketDetailsStyles.btn} btn`} onClick={() => handleDelTicket(ticket)}>Delete Ticket</button>
                   </td>

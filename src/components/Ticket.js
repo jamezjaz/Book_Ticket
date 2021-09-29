@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { format } from 'date-fns';
 // import { Link } from 'react-router-dom';
 import TicketStyles from '../styles/TicketStyles.module.css';
 
@@ -14,7 +15,7 @@ const Ticket = props => {
             <h3>{`Airline: ${ticket.airline_name}`}</h3>
             <h3>{`Username: ${ticket.username}`}</h3>
             <h3>{`City: ${ticket.city}`}</h3>
-            <h3>{`Date: ${ticket.date}`}</h3>
+            <h3>{`Date: ${format(new Date(ticket.date), 'MM/dd/yyyy')}`}</h3>
             <button type="button" className={`${TicketStyles.btn} btn`} onClick={() => removeBtn(ticket)}>Delete Ticket</button>
           </div>
         </td>
