@@ -27,6 +27,15 @@ const TicketDetails = props => {
     history.push('/tickets');
   };
 
+  const speak = msg => {
+    const sp = new SpeechSynthesisUtterance(msg);
+    [sp.voice] = speechSynthesis.getVoices();
+    speechSynthesis.speak(sp);
+  };
+  speak(`Hello ${ticket.username}!, `
+  + 'You\'ve successfully booked a ticket '
+  + 'Thank you for your patronage, have fun, and enjoy!.');
+
   return (
     <div className="d-flex">
       <div className="col-2 d-none d-md-flex border px-0">
